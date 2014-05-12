@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+ 
  if (window.localStorage.getItem("first") === null )
  {
 	window.localStorage.setItem("first", "no");
@@ -38,6 +40,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+		 $(document).ready(onDeviceReady);
     },
     // deviceready Event Handler
     //
