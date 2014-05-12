@@ -24,24 +24,14 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
+        <script type="text/javascript" src="js/ractive.js"></script>
     </head>
     <body>
         <div class="app">
             <h1>Test APP</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-         <script type="text/javascript" src="js/ractive.js"></script>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-        
-        <div id='output'>
-<script type='text/ractive' id='template'>
+                <p class="event received"><script type='text/ractive' id='template'>
 <p>{{greeting}} {{recipient}}!</p>
 </script>
 </div>
@@ -53,6 +43,17 @@ var ractive = new Ractive({
   data: { greeting: 'Hello', recipient: 'world' }
 });
 }
-</script>
+</script></p>
+            </div>
+        </div>
+         
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        
+        <div id='output'>
+
     </body>
 </html>
