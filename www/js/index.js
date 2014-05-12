@@ -16,6 +16,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ if (window.localStorage.getItem("first") === null )
+ {
+	window.localStorage.setItem("first", "no");
+	window.localStorage.setItem("filmstore",JSON.stringify(films));
+	items = JSON.parse(window.localStorage.getItem("filmstore"));
+}
+else {
+	items = JSON.parse(window.localStorage.getItem("filmstore"));
+}
+ 
+ 
 var app = {
     // Application Constructor
     initialize: function() {
