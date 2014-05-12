@@ -31,7 +31,9 @@
             <h1>Test APP</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
-                <p class="event received"><script type='text/ractive' id='template'>
+                <p class="event received">
+                <div id='output'>
+				<script type='text/ractive' id='template'>
 <p>{{greeting}} {{recipient}}!</p>
 </script>
 </div>
@@ -43,7 +45,7 @@ var ractive = new Ractive({
   data: { greeting: 'Hello', recipient: 'world' }
 });
 }
-</script></p>
+</script>fgfg</p>
             </div>
         </div>
          
