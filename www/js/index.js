@@ -39,14 +39,11 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-		alert("blah");
-		setup();
+		alert("Device Ready");
+		ractiveSetup();
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
-	received: function() {
-		ractivego();
-	},
 	
     receivedEvent: function(id) {
 		
