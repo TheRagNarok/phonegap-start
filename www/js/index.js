@@ -18,16 +18,6 @@
  */
 
  
- if (window.localStorage.getItem("first") === null )
- {
-	window.localStorage.setItem("first", "no");
-	window.localStorage.setItem("filmstore",JSON.stringify(films));
-	items = JSON.parse(window.localStorage.getItem("filmstore"));
-}
-else {
-	items = JSON.parse(window.localStorage.getItem("filmstore"));
-}
- 
  
 var app = {
     // Application Constructor
@@ -61,7 +51,7 @@ var app = {
         var receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        receivedElement.setAttribute('style', 'display:none;');
 
         console.log('Received Event: ' + id);
     }

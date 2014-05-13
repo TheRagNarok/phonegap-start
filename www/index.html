@@ -1,48 +1,36 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-       
-        <title>Test App</title>
-        
-        <script type="text/javascript" src="js/ractive.js"></script>
-		<script src='js/Ractive-events-tap.js'></script>
-    <script src='js/Ractive-decorators-sortable.js'></script>
-        
-            <link rel="stylesheet" type="text/css" media="all" href="superheroes.css">
+<!----------------------------------- Top ------------------------------------------------------------------>
+<!doctype html>
+<html lang='en-GB'>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>p start</title>
+    
+<!-----------------------------------genrePad css------------------------------------------------------------->
+    <link rel="stylesheet" type="text/css" media="all" href="superheroes.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-     <link rel="stylesheet" type="text/css" href="css/index.css" />
     
 <!-----------------------------------Jquery css ----------------------------------------------------->   
    <link rel="stylesheet" href="themes/fafstyle.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
 
 <!-----------------------------------Jquery Javascript ----------------------------------------------------->
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    
+<script src='js/Ractive.js'></script> 
+<script src='js/films.js'></script> 
+<script src='js/Ractive-events-tap.js'></script>
+    <script src='js/Ractive-decorators-sortable.js'></script>
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" />-->
+
+
+<!-----------------------------------Jquery Javascript ----------------------------------------------------->
 <script type="text/javascript">
 		$(document).ready(onDeviceReady);
 	</script>
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+
     </head>
     <body>
         <div class="app">
@@ -65,11 +53,48 @@ var ractive = new Ractive({
 
 </script>fgfg</p>
             </div>-->
-            
-            
-            
-    <script type='text/ractive' id='appView'>
-  <div class="sort" data-role="controlgroup" data-type="horizontal" >
+          
+  <script id='appView' type='text/ractive'>
+			
+<!----------------------------------- Add form ------------------------------------------------------->
+
+<label><input value='{{fTitle}}'placeholder="Enter film title"></label>
+<label><input  type="text" name="yearInput" id="yearInput" maxlength="4" value='{{fYear}}'placeholder="Enter film year"></label>
+<span id="errmsg"></span>
+<p>{{fTitle}} {{fYear}} will be added.</p>
+
+	<div class="top" data-role="controlgroup" data-type="horizontal" >
+		<button on-tap='add:{{fTitle}},{{fYear}}'>Add</button>
+		<button on-tap='reset'>Reset</button>
+	</div>
+		
+<!----------------------------------- genrePad ------------------------------------------------------->			
+			
+			 <div id="container">
+    <ul class="numpad">
+       <li on-tap='select' id='item' value='Action'> <img id='item' src="images/gpAction.png" /></li>
+       <li on-tap='select' value='Adventure'> <img id='item2' src="images/gpAdventure.png"/></li> 
+       <li on-tap='select' value='Comedy'> <img src="images/gpComedy.png" /></li>
+       <li on-tap='select' value='Fantasy'> <img src="images/gpFantasy.png" /></li>
+       <li on-tap='select' value='Historical'> <img src="images/gpHistorical.png" /></li>
+       <li on-tap='select' value='Horror'> <img src="images/gpHorror.png" /></li>
+       <li on-tap='select' value='Mystery'> <img src="images/gpMystery.png" /></li>
+       <li on-tap='select' value='Musical'> <img src="images/gpMusical.png" /></li>
+	   <li on-tap='select' value='Romance'> <img src="images/gpRomance.png" /></li>
+       <li on-tap='select' value='Science Fiction'> <img src="images/gpScifi.png" /></li>
+       <li on-tap='select' value='Thriller'> <img src="images/gpThriller.png" /></li>
+	   <li on-tap='select' value='Western'> <img src="images/gpWestern.png" /></li>
+    </ul>
+
+  </div>
+  
+  <p >
+  	first genre: {{genre1}} , second genre: {{genre2}}.
+  </p>
+			
+<!----------------------------------- film list View ------------------------------------------------------>
+			
+              <div class="sort" data-role="controlgroup" data-type="horizontal" >
                 <button on-tap='sort:title'>Film title</button>
                 <button on-tap='sort:year'>Year</button>
                 <button on-tap='sort:fave'>Watch List</button>
@@ -92,10 +117,19 @@ var ractive = new Ractive({
 				 </div>
     </ul>
               {{/ end of filminfo list }}
+          
 </script>
+
+
+
+<div data-role="page" id="one" data-theme="a"> 
+    <div data-role="header" data-position="inline">
+        <h1>FindAFilm</h1>
+    </div> 
 <div id='output' data-role="content" data-position="inline">
         <button onClick="blah()">update ractive</button></div>
  
+    </div>
     </div>
 <script>
 if (window.localStorage.getItem("first") === null )
@@ -129,8 +163,111 @@ genre2: "select",
     },
     sortColumn: 'title'
   }
+  });
+  var one = "select";
+var two = "select";
+
+<!----------------------------------- ractive(filmdb) events Model -------------------------------------->
+
+	filmdb.on( {
+		
+<!----------------------------------- genrePad select --------------------------------------------------->
+		select: function (event, id){
+			node = event.node.getAttribute( 'value' );
+		   // id = this.id;
+			
+			var $img = $(this);
+	   var id = $img.attr("id");
+	
+	
+		if (one == node){one = "select"; this.set({genre1:one});$("#item").css("opacity", 1.0);} // unselect first
+		else if (two == node){two = "select"; this.set({genre2:two});$("#item").css("opacity", 1.0);} // unselect second
+		
+		else if (one == "select" && two != "select"){
+			one = node;
+			this.set({genre1:one}); // first selected if second has a value and first does not
+			$("#item").css("opacity", 0.3);	
+			}
+			else if (two == "select"){
+			if (one == "select")
+			{
+			one = node;
+			this.set({genre1:one}); // first selected
+			$('#' + id).css("opacity", 0.3); 
+				
+			}
+			else {
+				two = node;
+				this.set({genre2:two});  // second selected
+				$("#item").css("opacity", 0.3);
+				}
+			}
+				
+			alert(one + '  ' + two + "  selected");		
+	
+			if (two != "select" && one != "select") // fix jquery mobile / ractive update problem
+			{
+			filtered = items.filter(function (el) {return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);}); // filter item one or one and two
+			this.set({filminfo: filtered}); // update ractive
+			}
+	
+		},
+	
+	<!----------------------------------- sort films -------------------------------------------------------->
+	
+		sort: function ( event, column ) { // sort column
+			this.set( 'sortColumn', column );
+		},
+	
+	<!----------------------------------- add new film ------------------------------------------------------>
+			 
+		add: function ( event, fTitle, fYear ) {
+			 var newFilm = {
+			 title: fTitle,
+			 year: fYear,
+			 fave: 'z',
+			 info: 'search.html'
+			};
+			var arr = [1, 2, ['test', 'Action'], 5];
+	
+	alert (arr[2][0] + ' film added'); //alerts "test"
+			items.push( newFilm );
+			window.localStorage.setArray("filmstore", items);
+		
+		},
+		
+	<!----------------------------------- remove selected film -------------------------------------------->	
+	  
+		remove: function ( event, title) { // Remove item
+			var sortedTitle = title;
+			var titleArrayPosition;
+	
+		   for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
+			if (items[i].title == sortedTitle) titleArrayPosition = items[i];  // search for title
+		   }	
+			var titleArrayIndex = items.indexOf(titleArrayPosition);
+				alert(sortedTitle + '  is being removed at index position  ' + titleArrayIndex);
+				
+			items.splice(titleArrayIndex, 1);  // remove object (defined by index number) from items array
+			window.localStorage.setArray("filmstore", items); // update changes
+			if (two != "select" && one != "select") // fix jquery mobile / ractive update glitch
+			{
+			filtered = items.filter(function (el) {return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);}); // filter item one or one and two
+			this.set({filminfo: filtered}); // update ractive
+			}
+		},
+		
+	<!----------------------------------- reset app ------------------------------------------------------->	
+	
+		reset: function ( event ) {
+			window.localStorage.removeItem('first');
+			window.location.reload();
+		}
+		
+		
+	});
   
-});
+
 
 </script>
  
