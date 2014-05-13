@@ -29,7 +29,27 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('deviceready', 
+		
+		
+		
+		
+		
+		
+		
+		
+		 function () {
+			 this.onDeviceReady,
+      $('body').css('visibility', 'hidden');
+      $(document).one("mobileinit", function () {
+        app.init();
+        $('body').css('visibility', '');
+      });
+      $.getScript('http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js');
+    },
+	
+	
+	 false);
 				//$('#page').live('pageshow', function(event){
   //  onDeviceReady();             
 //});
