@@ -26,7 +26,6 @@
         <title>Test App</title>
           <script type="text/javascript" src="js/ractive.js"></script>
           
-        <script type="text/javascript" src="phonegap.js"></script>
         <!-----------------------------------Jquery Javascript ----------------------------------------------------->
       <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
@@ -48,9 +47,7 @@
 	
 <script type="text/javascript">
 		<!--$(document).ready(onDeviceReady);-->
-		$('#page').live('pageshow', function(event){
-    onDeviceReady();             
-});
+
 	</script>
 
     </head>
@@ -152,18 +149,7 @@ genre2: "select",
 
         
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-                  
-            
+      
             
             
             
@@ -173,7 +159,7 @@ genre2: "select",
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            app.initialize();
+            $(document).ready(function() {app.initialize();})
         </script>
         
 
