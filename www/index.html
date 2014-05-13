@@ -34,7 +34,25 @@
         <!-----------------------------------Jquery Javascript ----------------------------------------------------->
       <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
       <script type="text/javascript" src="phonegap.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+      
+      	
+<script type="text/javascript">
+		 document.addEventListener(
+    'deviceready',
+    function () {
+      $('body').css('visibility', 'hidden');
+      $(document).one("mobileinit", function () {
+        app.init();
+        $('body').css('visibility', '');
+      });
+      $.getScript('http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js');
+    },
+    false
+  );
+
+	</script>
+      
+	<!--<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>-->
     
     
          <script type="text/javascript" src="js/films.js"></script>
@@ -50,16 +68,11 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
 
 
-	
-<script type="text/javascript">
-		<!--$(document).ready(onDeviceReady);-->
 
-	</script>
 
     </head>
     <body>
         <div class="app">
-            <h1>Test APP</h1>
             <div id="deviceready">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">
