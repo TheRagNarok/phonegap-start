@@ -40,15 +40,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 		alert("Device Ready");
-		ractiveSetup();
-		 
-      $('body').css('visibility', 'hidden');
-      $(document).one("mobileinit", function () {
-        app.init();
-        $('body').css('visibility', '');
-      });
-      $.getScript('http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js');
-    
+		ractiveSetup();   
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
