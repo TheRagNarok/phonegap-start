@@ -62,29 +62,28 @@
         <div class="app">
             <div id="deviceready">
                 <p class="event listening">Connecting to Device</p>
-                <p class="event received">
-               <!-- <div id='output'>
+                <p class="event received"></p>
+             
 <script type='text/ractive' id='template'>
 <p>{{greeting}} {{recipient}}!</p>
 </script>
 </div>
 <script>
-
+function ractiveSetup(){
 var ractive = new Ractive({
   el: output,
   template: '#template',
   data: { greeting: 'Hello', recipient: 'world' }
 });
-
-</script>fgfg</p>
-            </div>-->
+}
+</script>
+           
             
             
-            
-    <script type='text/ractive' id='appView'>
+   <!-- <script type='text/ractive' id='appView'>
   <div class="sort" data-role="controlgroup" data-type="horizontal" >
-                <button onclick='sort:title'>Film title</button>
-                <button on-click='sort:year'>Year</button>
+                <button on-tap='sort:title'>Film title</button>
+                <button on-tap='sort:year'>Year</button>
                 <button on-tap='sort:fave'>Watch List</button>
               </div>
 			  
@@ -105,7 +104,7 @@ var ractive = new Ractive({
 				 </div>
     </ul>
               {{/ end of filminfo list }}
-</script>
+</script>-->
 <div data-role="page" id="one" data-theme="a"> 
 
     <div data-role="header" data-position="inline"><h1>FindAFilm</h1></div> 
@@ -116,7 +115,7 @@ var ractive = new Ractive({
      </div>
         </div>
     
-<script>
+<!--<script>
 if (window.localStorage.getItem("first") === null )
  {
 	window.localStorage.setItem("first", "no");
@@ -152,7 +151,7 @@ genre2: "select",
   
 });
 	}
-</script>
+</script>-->
             
        
          
