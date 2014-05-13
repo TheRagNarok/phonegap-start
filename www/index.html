@@ -104,14 +104,13 @@ var ractive = new Ractive({
               {{/ end of filminfo list }}
 </script>
 <div data-role="page" id="one" data-theme="a"> 
-    <div data-role="header" data-position="inline">
-        <h1>FindAFilm</h1>
-    </div> 
-<div id='output' data-role="content" data-position="inline">
-        <button onClick="blah()">update ractive</button></div>
+
+    <div data-role="header" data-position="inline"><h1>FindAFilm</h1></div> 
+    
+	<div id='output' data-role="content" data-position="inline"></div>
  
     </div>
-    </div>
+    
 <script>
 if (window.localStorage.getItem("first") === null )
  {
