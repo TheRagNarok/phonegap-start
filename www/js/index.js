@@ -29,27 +29,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        document.addEventListener('deviceready', 
-		
-		
-		
-		
-		
-		
-		
-		
-		 function () {
-			 this.onDeviceReady,
-      $('body').css('visibility', 'hidden');
-      $(document).one("mobileinit", function () {
-        app.init();
-        $('body').css('visibility', '');
-      });
-      $.getScript('http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js');
-    },
-	
-	
-	 false);
+        document.addEventListener('deviceready', this.onDeviceReady, false);
 				//$('#page').live('pageshow', function(event){
   //  onDeviceReady();             
 //});
@@ -61,6 +41,14 @@ var app = {
     onDeviceReady: function() {
 		alert("Device Ready");
 		ractiveSetup();
+		 
+      $('body').css('visibility', 'hidden');
+      $(document).one("mobileinit", function () {
+        app.init();
+        $('body').css('visibility', '');
+      });
+      $.getScript('http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js');
+    
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
