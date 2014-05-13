@@ -32,7 +32,7 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
 				//$('#page').live('pageshow', function(event){
   //  onDeviceReady();             
-});
+//});
     },
     // deviceready Event Handler
     //
