@@ -79,7 +79,7 @@ addF = new Ractive ({
 	<!----------------------------------- add new film ------------------------------------------------------>
 		addF.on({	
 		 
-		add: function ( event, fTitle, fYear ) {
+		add: function ( event, fTitle) {
 			
 			if (aTwo != "select" && aOne != "select")
 			{
@@ -88,7 +88,6 @@ addF = new Ractive ({
 			 genreA: aOne,
 			 genreB: aTwo,
 			 title: fTitle,
-			 year: fYear,
 			 fave: 'z'
 			};
 
