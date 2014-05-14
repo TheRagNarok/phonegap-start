@@ -116,7 +116,7 @@ addF = new Ractive ({
 			window.location.reload();
 		},
 		
-		select: function (event, id){
+		select2: function (event, id){
 			node = event.node.getAttribute( 'value' );
 		   // id = this.id;
 		   alert(id);
