@@ -54,9 +54,6 @@
    <link rel="stylesheet" href="themes/fafstyle.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
 
-
-
-
     </head>
     <body>
         <div class="app">
@@ -64,24 +61,74 @@
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received"></p>
              
-<script type='text/ractive' id='template'>
-<p>{{greeting}} {{recipient}}!</p>
+         
+  <script id='searchPage' type='text/ractive'>
+<!----------------------------------- genrePad ------------------------------------------------------->			
+			
+			 <div id="container">
+    <ul class="numpad">
+       <li on-tap='select' id='item' value='Action'> <img id='item' src="images/gpAction.png" /></li>
+       <li on-tap='select' value='Adventure'> <img id='item2' src="images/gpAdventure.png"/></li> 
+       <li on-tap='select' value='Comedy'> <img src="images/gpComedy.png" /></li>
+       <li on-tap='select' value='Fantasy'> <img src="images/gpFantasy.png" /></li>
+       <li on-tap='select' value='Historical'> <img src="images/gpHistorical.png" /></li>
+       <li on-tap='select' value='Horror'> <img src="images/gpHorror.png" /></li>
+       <li on-tap='select' value='Mystery'> <img src="images/gpMystery.png" /></li>
+       <li on-tap='select' value='Musical'> <img src="images/gpMusical.png" /></li>
+	   <li on-tap='select' value='Romance'> <img src="images/gpRomance.png" /></li>
+       <li on-tap='select' value='Science Fiction'> <img src="images/gpScifi.png" /></li>
+       <li on-tap='select' value='Thriller'> <img src="images/gpThriller.png" /></li>
+	   <li on-tap='select' value='Western'> <img src="images/gpWestern.png" /></li>
+    </ul>
+
+  </div>
+  <p>{{genre1}} , {{genre2}}.</p>
+  
+  
+  <a href="#results" data-transition="slideup" data-role="button" data-mini="true" data-inline="true" on-tap='find:{{genre1}},{{genre2}}'>Find</a>
 </script>
-</div>
-<script>
-function ractiveSetup(){
-var ractive = new Ractive({
-  el: output,
-  template: '#template',
-  data: { greeting: 'Hello', recipient: 'world' }
-});
-}
+
+
+<script id='addPage' type='text/ractive'>
+<!----------------------------------- Add form ------------------------------------------------------->
+
+<div id="container">
+    <ul class="numpad">
+       <li on-tap='select' id='item' value='Action'> <img id='item' src="images/gpAction.png" /></li>
+       <li on-tap='select' value='Adventure'> <img id='item2' src="images/gpAdventure.png"/></li> 
+       <li on-tap='select' value='Comedy'> <img src="images/gpComedy.png" /></li>
+       <li on-tap='select' value='Fantasy'> <img src="images/gpFantasy.png" /></li>
+       <li on-tap='select' value='Historical'> <img src="images/gpHistorical.png" /></li>
+       <li on-tap='select' value='Horror'> <img src="images/gpHorror.png" /></li>
+       <li on-tap='select' value='Mystery'> <img src="images/gpMystery.png" /></li>
+       <li on-tap='select' value='Musical'> <img src="images/gpMusical.png" /></li>
+	   <li on-tap='select' value='Romance'> <img src="images/gpRomance.png" /></li>
+       <li on-tap='select' value='Science Fiction'> <img src="images/gpScifi.png" /></li>
+       <li on-tap='select' value='Thriller'> <img src="images/gpThriller.png" /></li>
+	   <li on-tap='select' value='Western'> <img src="images/gpWestern.png" /></li>
+    </ul>
+
+  </div>
+  <p>{{genre1}} , {{genre2}}.</p>
+  
+<label><input value='{{fTitle}}'placeholder="Enter film title"></label>
+<label><input  type="text" name="yearInput" id="yearInput" maxlength="4" value='{{fYear}}'placeholder="Enter film year"></label>
+<span id="errmsg"></span>
+<p>{{fTitle}} {{fYear}} will be added.</p>
+
+	<div class="top" data-role="controlgroup" data-type="horizontal" >
+		<button on-tap='add:{{fTitle}},{{fYear}}'>Add</button>
+		<button on-tap='reset'>Reset</button>
+	</div>
+	
+	
 </script>
-           
-            
-            
-   <!-- <script type='text/ractive' id='appView'>
-  <div class="sort" data-role="controlgroup" data-type="horizontal" >
+
+<script id='appView' type='text/ractive'>
+		
+<!----------------------------------- film list View ------------------------------------------------------>
+			
+              <div class="sort" data-role="controlgroup" data-mini="true" data-type="horizontal" >
                 <button on-tap='sort:title'>Film title</button>
                 <button on-tap='sort:year'>Year</button>
                 <button on-tap='sort:fave'>Watch List</button>
@@ -90,32 +137,75 @@ var ractive = new Ractive({
     <form class="ui-filterable">
       <input id="myFilter" data-type="search" placeholder="Search for a film..">
     </form>
-	
-    <ul data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true" >
+	<div data-role="collapsible-set" data-mini="true">
+    <ul data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
               {{# sort( filminfo, sortColumn ) :i}}
                 
 				 <div data-role="collapsible">
-    			<h4>{{title}}</h4>
+    			<h4>{{title}} <a data-role="button" on-tap='remove:{{title}}'  data-icon="delete" data-iconpos="notext">Delete</a></h4>
                   <li>({{year}})</li>
-				  <li>{{genreA}}</li>
-				  <li>{{genreB}}</li>
+				  <li>{{genreA}},{{genreB}}</li>
                   <li>{{fave}}</li>
-                  <button on-tap='remove:{{title}}' class='destroy'>Remove</button>
+                  <a data-role="button" on-tap='remove:{{title}}' class='destroy' data-icon="delete" data-iconpos="notext">Delete</a>
 				 </div>
+				 
     </ul>
               {{/ end of filminfo list }}
-</script>-->
-<div data-role="page" id="one" data-theme="a"> 
+			  </div>
+          
+</script>
 
-    <div data-role="header" data-position="inline"><h1>FindAFilm</h1></div> 
+
+
+<script id='favePage' type='text/ractive'>
+
+<div data-role="collapsible-set" data-mini="true">
+    <ul data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+              {{# sort( filminfo, sortColumn ) :i}}
+                
+				 <div data-role="collapsible">
+    			<h4>{{title}} <a data-role="button" on-tap='remove:{{title}}'  data-icon="delete" data-iconpos="notext">Delete</a></h4>
+                  <li>({{year}})</li>
+                  <li>{{fave}}</li>
+				 </div>
+				 
+    </ul>
+              {{/ end of filminfo list }}
+			  </div>
+</script>
+<div data-role="page" id="one" data-theme="a"> 
+    <div data-role="header" data-position="inline">
+        <h1>FindAFilm</h1> <a href="#addFilm"data-transition="slide">Add Film</a> <a href="#watchList"data-transition="slide">Watch List</a>
+    </div> 
+	<div id='searchFilm2' class='genrePad' data-role="content" data-position="inline"><p>placeholder</p></div>
+</div>
     
-	<div id='output' data-role="content" data-position="inline"></div>
+<div data-role="page" id="results" data-theme="a"> 
+    <div data-role="header" data-position="inline" data-direction="reverse" data-add-back-btn="true">
+        <h1>FindAFilm</h1> 
+    </div> 
+	<div id='output' data-role="content" data-position="inline"><p>placeholder</p></div>
+</div>
+
+<div data-role="page" id="addFilm" data-theme="a"> 
+    <div data-role="header" data-position="inline" data-direction="reverse" data-add-back-btn="true">
+        <h1>FindAFilm</h1> 
+    </div> 
+	<div id='addFilm' data-role="content" data-position="inline"><p>placeholder</p></div>
+</div>
+
+<div data-role="page" id="watchList" data-theme="a"> 
+    <div data-role="header" data-position="inline" data-direction="reverse" data-add-back-btn="true">
+        <h1>FindAFilm</h1> 
+    </div> 
+	<div id='faves' data-role="content" data-position="inline"><p>placeholder</p></div>
+</div>
  
     </div>
      </div>
         </div>
     
-<!--<script>
+<script>
 if (window.localStorage.getItem("first") === null )
  {
 	window.localStorage.setItem("first", "no");
@@ -127,9 +217,151 @@ else {
 	
 }
 
+
 var filtered = items;
+var one = "select";
+var two = "select";
+var aOne = "select";
+var aTwo = "select";
+
+function ractiveSetup(){
+searchF = new Ractive({
+	el: '.genrePad',
+	template:'#searchPage',
+	});
+	searchF.on({
+		<!----------------------------------- genrePad select --------------------------------------------------->
+		
+		select: function (event, id){
+			node = event.node.getAttribute( 'value' );
+		   // id = this.id;
+			
+			var $img = $(this);
+	   var id = $img.attr("id");
 	
-	function ractiveSetup(){
+	
+		if (one == node){one = "select"; this.set({genre1:one});$("#item").css("opacity", 1.0);} // unselect first
+		else if (two == node){two = "select"; this.set({genre2:two});$("#item").css("opacity", 1.0);} // unselect second
+		
+		else if (one == "select" && two != "select"){
+			one = node;
+			this.set({genre1:one}); // first selected if second has a value and first does not
+			$("#item").css("opacity", 0.3);	
+			}
+			else if (two == "select"){
+			if (one == "select")
+			{
+			one = node;
+			this.set({genre1:one}); // first selected
+			$('#' + id).css("opacity", 0.3); 
+				
+			}
+			else {
+				two = node;
+				this.set({genre2:two});  // second selected
+				$("#item").css("opacity", 0.3);
+				}
+			}
+					
+	
+		},
+		
+		find: function ( event, genre1, genre2) {
+			
+			if ( genre1 != "null" || genre2 != "null"){
+			
+			filtered = items.filter(function (el) {return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);}); // filter item one or one and two
+			filmdb.set({filminfo: filtered}); // update ractive
+			
+			
+			}
+			else {filmdb.update({filminfo: filtered});} // update ractive}
+		}
+	});
+	
+
+addF = new Ractive ({
+	el: 'addFilm',
+	template:'#addPage',
+	});
+	<!----------------------------------- add new film ------------------------------------------------------>
+		addF.on({	
+		 
+		add: function ( event, fTitle, fYear ) {
+			
+			if (aTwo != "select" && aOne != "select")
+			{
+				
+			 var newFilm = {
+			 genreA: aOne,
+			 genreB: aTwo,
+			 title: fTitle,
+			 year: fYear,
+			 fave: 'z'
+			};
+
+			items.push( newFilm );
+			window.localStorage.setItem("filmstore",JSON.stringify(items));
+			alert(fTitle + " has been added.");
+			filmdb.set({filminfo: filtered}); // update ractive
+			aOne = "select";
+			aTwo = "select";
+			}
+			
+			else {
+				alert("please select two genres");
+				}
+		
+		
+		},
+		
+		<!----------------------------------- reset app ------------------------------------------------------->	
+	
+		reset: function ( event ) {
+			window.localStorage.removeItem('first');
+			alert("app reset");
+			window.location.reload();
+		},
+		
+		select: function (event, id){
+			node = event.node.getAttribute( 'value' );
+		   // id = this.id;
+			
+			var $img = $(this);
+	   var id = $img.attr("id");
+	
+	
+		if (aOne == node){aOne = "select"; this.set({genre1:aOne});$("#item").css("opacity", 1.0);} // unselect first
+		else if (aTwo == node){aTwo = "select"; this.set({genre2:aTwo});$("#item").css("opacity", 1.0);} // unselect second
+		
+		else if (aOne == "select" && aTwo != "select"){
+			aOne = node;
+			this.set({genre1:aOne}); // first selected if second has a value and first does not
+			$("#item").css("opacity", 0.3);	
+			}
+			else if (aTwo == "select"){
+			if (aOne == "select")
+			{
+			aOne = node;
+			this.set({genre1:aOne}); // first selected
+			$('#' + id).css("opacity", 0.3); 
+				
+			}
+			else {
+				aTwo = node;
+				this.set({genre2:aTwo});  // second selected
+				$("#item").css("opacity", 0.3);
+				}
+			}
+					
+	
+		}
+		});
+
+
+
+
+	
 	filmdb = new Ractive({
 	
   el: 'output',
@@ -137,6 +369,7 @@ var filtered = items;
   data: {
 genre1: "select",
 genre2: "select",
+		
     filminfo: filtered,
 	
     sort: function ( array, column ) {
@@ -148,10 +381,60 @@ genre2: "select",
     },
     sortColumn: 'title'
   }
+  });
+
+
+<!----------------------------------- ractive(filmdb) events  -------------------------------------->
+	filmdb.on( {
+	<!----------------------------------- sort films -------------------------------------------------------->
+	
+		sort: function ( event, column ) { // sort column
+			this.set( 'sortColumn', column );
+		},
+	
+	<!----------------------------------- remove selected film -------------------------------------------->	
+	  
+		remove: function ( event, title) { // Remove item
+			var sortedTitle = title;
+			var titleArrayPosition;
+	
+		   for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
+			if (items[i].title == sortedTitle) 
+				titleArrayPosition = items[i];  // search for title
+		    }	
+			
+			var titleArrayIndex = items.indexOf(titleArrayPosition);
+			alert(sortedTitle + '  is being removed at index position  ' + titleArrayIndex);
+				
+			items.splice(titleArrayIndex, 1);  // remove object (defined by index number) from items array
+			window.localStorage.setArray("filmstore", items); // update changes
+				
+			
+		},		
+		
+	});
+	
+	
+	faveF = new Ractive({
+		
+  el: 'faves',
+  template: '#favePage',
+  data: {
+
+    filminfo: items.filter(function (el) {return (el.fave === "on watch");}),
+	
+    sort: function ( array, column ) {
+      array = array.slice(); // clone, so we don't modify the underlying data
   
-});
-	}
-</script>-->
+      return array.sort( function ( a, b ) {
+        return a[ column ] < b[ column ] ? -1 : 1;
+      });
+    },
+    sortColumn: 'title'
+  }
+  });
+  }
+</script>
             
        
          

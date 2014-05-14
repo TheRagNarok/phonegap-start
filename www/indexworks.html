@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi" />
+       
+        <title>Test App</title>
+         
+        
+          <script type="text/javascript" src="js/ractive.js"></script>
+          
+        <!-----------------------------------Jquery Javascript ----------------------------------------------------->
+      <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <script type="text/javascript" src="phonegap.js"></script>
+      
+      
+    
+    <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+      
+	<!--<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>-->
+    
+    
+         <script type="text/javascript" src="js/films.js"></script>
+		<script src='js/Ractive-events-tap.js'></script>
+    <script src='js/Ractive-decorators-sortable.js'></script>
+        
+            <link rel="stylesheet" type="text/css" media="all" href="superheroes.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <!-- /*  <link rel="stylesheet" type="text/css" href="css/index.css" />*/-->
+    
+<!-----------------------------------Jquery css ----------------------------------------------------->   
+   <link rel="stylesheet" href="themes/fafstyle.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
+
+    </head>
+    <body>
+        <div class="app">
+            <div id="deviceready">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received"></p>
+             
+<script type='text/ractive' id='template'>
+<p>{{greeting}} {{recipient}}!</p>
+</script>
+</div>
+<script>
+function ractiveSetup(){
+var ractive = new Ractive({
+  el: hello,
+  template: '#template',
+  data: { greeting: 'Hello', recipient: 'world' }
+});
+}
+</script>
+           
+            
+            
+   <!-- <script type='text/ractive' id='appView'>
+  <div class="sort" data-role="controlgroup" data-type="horizontal" >
+                <button on-tap='sort:title'>Film title</button>
+                <button on-tap='sort:year'>Year</button>
+                <button on-tap='sort:fave'>Watch List</button>
+              </div>
+			  
+    <form class="ui-filterable">
+      <input id="myFilter" data-type="search" placeholder="Search for a film..">
+    </form>
+	
+    <ul data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true" >
+              {{# sort( filminfo, sortColumn ) :i}}
+                
+				 <div data-role="collapsible">
+    			<h4>{{title}}</h4>
+                  <li>({{year}})</li>
+				  <li>{{genreA}}</li>
+				  <li>{{genreB}}</li>
+                  <li>{{fave}}</li>
+                  <button on-tap='remove:{{title}}' class='destroy'>Remove</button>
+				 </div>
+    </ul>
+              {{/ end of filminfo list }}
+</script>-->
+<div data-role="page" id="one" data-theme="a"> 
+
+    <div data-role="header" data-position="inline"><h1>FindAFilm</h1></div> 
+    
+	<div id='hello' data-role="content" data-position="inline"></div>
+ 
+    </div>
+     </div>
+        </div>
+    
+<!--<script>
+if (window.localStorage.getItem("first") === null )
+ {
+	window.localStorage.setItem("first", "no");
+	window.localStorage.setItem("filmstore",JSON.stringify(films));
+	items = JSON.parse(window.localStorage.getItem("filmstore"));
+}
+else {
+	items = JSON.parse(window.localStorage.getItem("filmstore"));
+	
+}
+
+var filtered = items;
+	
+	function ractiveSetup(){
+	filmdb = new Ractive({
+	
+  el: 'output',
+  template: '#appView',
+  data: {
+genre1: "select",
+genre2: "select",
+    filminfo: filtered,
+	
+    sort: function ( array, column ) {
+      array = array.slice(); // clone, so we don't modify the underlying data
+  
+      return array.sort( function ( a, b ) {
+        return a[ column ] < b[ column ] ? -1 : 1;
+      });
+    },
+    sortColumn: 'title'
+  }
+  
+});
+	}
+</script>-->
+            
+       
+         
+       
+
+    </body>
+</html>
