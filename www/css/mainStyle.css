@@ -30,7 +30,7 @@ input {
 ::-moz-placeholder { color: #ccc; }
 :-ms-input-placeholder { color: #ccc; }
 
-#container { 
+#container, #container1 { 
   padding-top: 40px;
   width: 220px;
   height: 200px;
