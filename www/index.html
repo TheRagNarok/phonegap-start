@@ -154,30 +154,34 @@
               {{/ end of filminfo list }}
 			  </div>
 </script>
+
+<div data-role="header" data-position="fixed" data-fullscreen="true">
+	<h1>Fixed Header!</h1>
+</div>
 <div data-role="page" id="one" data-theme="a"> 
-    <div data-role="header" data-position="inline" data-position="fixed">
+    <div data-role="header" data-position="inline">
     <p></p>
-        <h1>FindAFilm</h1> <a href="#AddFilm"data-transition="slide">Add Film</a> <a href="#watchList"data-transition="slide">Watch List</a>
+        <h1>FindAFilm</h1><p></p><a href="#AddFilm"data-transition="slide">Add Film</a> <a href="#watchList"data-transition="slide">Watch List</a>
     </div> 
 	<div id='searchFilm2' class='genrePad' data-role="content" data-position="inline"><p>placeholder</p></div>
 </div>
     
 <div data-role="page" id="results" data-theme="a"> 
-    <div data-role="header" data-position="inline" data-direction="reverse" data-add-back-btn="true" data-position="fixed">
+    <div data-role="header" data-position="inline" data-direction="reverse" data-add-back-btn="true">
         <h1>FindAFilm</h1> 
     </div> 
 	<div id='output' data-role="content" data-position="inline"><p>placeholder</p></div>
 </div>
 
 <div data-role="page" id="AddFilm" data-theme="a"> 
-    <div data-role="header" data-position="inline" data-direction="reverse" data-add-back-btn="true" data-position="fixed">
+    <div data-role="header" data-position="inline" data-direction="reverse" data-add-back-btn="true">
         <h1>FindAFilm</h1> 
     </div> 
 	<div id='addFilm' data-role="content" data-position="inline"><p>placeholder</p></div>
 </div>
 
 <div data-role="page" id="watchList" data-theme="a"> 
-    <div data-role="header" data-position="inline" data-direction="reverse" data-add-back-btn="true" data-position="fixed">
+    <div data-role="header" data-position="inline" data-direction="reverse" data-add-back-btn="true">
         <h1>FindAFilm</h1> 
     </div> 
 	<div id='faves' data-role="content" data-position="inline"><p>placeholder</p></div>
