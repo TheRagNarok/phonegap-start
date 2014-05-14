@@ -27,6 +27,8 @@ searchF = new Ractive({
 		select: function (event, id){
 			node = event.node.getAttribute( 'value' );
 		   // id = this.id;
+		    alert(id);
+		   alert($('#' + id));
 			
 			var $img = $(this);
 	   var id = $img.attr("id");
