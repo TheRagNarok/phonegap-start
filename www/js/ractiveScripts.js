@@ -117,6 +117,8 @@ addF = new Ractive ({
 		select: function (event, id){
 			node = event.node.getAttribute( 'value' );
 		   // id = this.id;
+		   alert(id);
+		   alert($('#' + id));
 			
 			var $img = $(this);
 	   var id = $img.attr("id");
@@ -128,7 +130,7 @@ addF = new Ractive ({
 		else if (aOne == "select" && aTwo != "select"){
 			aOne = node;
 			this.set({genre1:aOne}); // first selected if second has a value and first does not
-			$("#item").css("opacity", 0.3);	
+			$('#' + id).css("opacity", 0.3);	
 			}
 			else if (aTwo == "select"){
 			if (aOne == "select")
