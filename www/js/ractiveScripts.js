@@ -75,7 +75,7 @@ searchF = new Ractive({
 					$('#rlist').listview('refresh');
 					
 			     }
-				 resuts();
+
 		}
 	});
 	
@@ -154,7 +154,8 @@ addF = new Ractive ({
 		});
 
 
-	function results(){
+
+
 	filmdb = new Ractive({
 	
   el: 'output',
@@ -179,7 +180,10 @@ genre2: "select",
   
   });
 
-
+observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+  alert( keypath + ' changed to ' + newValue );
+  $('#rlist').listview('refresh');
+});
 <!----------------------------------- ractive(filmdb) events  -------------------------------------->
 	filmdb.on( {
 	<!----------------------------------- sort films -------------------------------------------------------->
@@ -211,7 +215,7 @@ genre2: "select",
 		
 	});
 	
-	}
+	
 	faveF = new Ractive({
 		
   el: 'faves',
