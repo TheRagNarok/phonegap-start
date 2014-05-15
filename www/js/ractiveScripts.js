@@ -168,7 +168,7 @@ genre2: "select",
         return a[ column ] < b[ column ] ? -1 : 1;
       });
     },
-    sortColumn: 'title'
+    
   }
   });
 
