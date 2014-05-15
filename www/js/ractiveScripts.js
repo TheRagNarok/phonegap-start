@@ -58,7 +58,7 @@ searchF = new Ractive({
 		
 		find: function ( event, genre1, genre2) {
 			
-			if ( genre1 != "null" || genre2 != "null"){
+			if ( genre1 != "undefined" || genre2 != "undefined"){
 			
 			filtered = items.filter(function (el) {return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);}); // filter item one or one and two
 			filmdb.set({filminfo: filtered}); // update ractive
