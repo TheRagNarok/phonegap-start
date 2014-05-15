@@ -72,7 +72,7 @@ searchF = new Ractive({
 					filminfo: filtered
 					
 					}); // update ractive
-					$('#resultslist').listview('refresh');
+					$('#rlist').listview('refresh');
 			     }
 		}
 	});
@@ -184,6 +184,7 @@ genre2: "select",
 	
 		sort: function ( event, column ) { // sort column
 			this.set( 'sortColumn', column );
+			$('#rlist').listview('refresh');
 		},
 	
 	<!----------------------------------- remove selected film -------------------------------------------->	
