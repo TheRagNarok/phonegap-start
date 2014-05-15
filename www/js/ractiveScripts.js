@@ -20,11 +20,41 @@ function ractiveSetup(){
 searchF = new Ractive({
 	el: '.genrePad',
 	template:'#searchPage',
-	});
+		data:{
+			  genreinfo: genre,
+			 }
+  
+  });
+	
 	searchF.on({
 		<!----------------------------------- genrePad select --------------------------------------------------->
 		
+		select: function (event, value, id){
+	
+		if (one == value){one = "select"; this.set({genre1:one});$('#' + id).css("opacity", 1.0);} // unselect first
+		else if (two == value){two = "select"; this.set({genre2:two});$('#' + id).css("opacity", 1.0);} // unselect second
 		
+		else if (one == "select" && two != "select"){
+			one = value;
+			this.set({genre1:one}); // first selected if second has a value and first does not
+			$('#' + id).css("opacity", 0.3);	
+			}
+			else if (two == "select"){
+			if (one == "select")
+			{
+			one = value;
+			this.set({genre1:one}); // first selected
+			$('#' + id).css("opacity", 0.3); 
+				
+			}
+			else {
+				two = value;
+				this.set({genre2:two});  // second selected
+				$('#' + id).css("opacity", 0.3);
+				}
+			}
+			
+			},
 		
 		find: function ( event, genre1, genre2) {
 			
@@ -82,7 +112,7 @@ addF = new Ractive ({
 			window.location.reload();
 		},
 		
-		select2: function (event, id){
+		select: function (event, id){
 			node = event.node.getAttribute( 'value' );
 		   // id = this.id;
 		   alert(id);

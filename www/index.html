@@ -48,23 +48,13 @@
   <script id='searchPage' type='text/ractive'>
 <!----------------------------------- genrePad ------------------------------------------------------->			
 			
-			 <div id="container1">
-    <ul class="numpad">
-       <li on-tap='select:{{genre}}' id='item' value='{{genre}}'> <img id='item' src="images/gpAction.png" /></li>
-       <li onclick='select(this.id);' id='item2'value='Adventure'> <img id='item2' src="images/gpAdventure.png"/></li> 
-       <li on-tap='select' value='Comedy'> <img src="images/gpComedy.png" /></li>
-       <li on-tap='select' value='Fantasy'> <img src="images/gpFantasy.png" /></li>
-       <li on-tap='select' value='Historical'> <img src="images/gpHistorical.png" /></li>
-       <li on-tap='select' value='Horror'> <img src="images/gpHorror.png" /></li>
-       <li on-tap='select' value='Mystery'> <img src="images/gpMystery.png" /></li>
-       <li on-tap='select' value='Musical'> <img src="images/gpMusical.png" /></li>
-	   <li on-tap='select' value='Romance'> <img src="images/gpRomance.png" /></li>
-       <li on-tap='select' value='Science Fiction'> <img src="images/gpScifi.png" /></li>
-       <li on-tap='select' value='Thriller'> <img src="images/gpThriller.png" /></li>
-	   <li on-tap='select' value='Western'> <img src="images/gpWestern.png" /></li>
-    </ul>
-
-  </div>
+			<div id="container">
+		<ul class="numpad">
+			{{#genreinfo:i}}
+			<li on-tap='select:{{value}},{{id}}' id={{id}}> <img src={{img}} /></li>		
+        </ul>
+			{{/genreinfo}}
+	</div>
   <p>{{genre1}} , {{genre2}}.</p>
   
   
