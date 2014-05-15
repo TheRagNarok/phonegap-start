@@ -57,10 +57,7 @@
 	</div>
   <p>{{genre1}} , {{genre2}}.</p>
   
-	<div class="top" data-role="controlgroup" data-type="horizontal" >
-		<button on-tap='add:{{fTitle}}'>Add</button>
-		<button on-tap='reset'>Reset</button>
-	</div>
+<button id="test">test</button>
 <a data-role="button" href="#results" data-transition="slideup" data-mini="true" data-inline="true" on-tap='find:{{genre1}},{{genre2}}'>Find</a> 
 
 </script>
@@ -83,7 +80,7 @@
 
 	<div class="top" data-role="controlgroup" data-type="horizontal" >
 		<button on-tap='add:{{fTitle}}'>Add</button>
-		<button on-tap='reset'>Reset</button>
+		<!--<button on-tap='reset'>Reset</button>-->
 	</div>
 	
 	
@@ -137,7 +134,7 @@
 <div data-role="page" id="one" data-theme="a"> 
     <div data-role="header" data-position="inline">
     <p></p>
-        <h1>FindAFilm</h1><p></p><a href="#AddFilm"data-transition="slide">Add Film</a> <a href="#watchList"data-transition="slide">Watch List</a>
+        <h1>FindAFilm</h1><a href="#AddFilm"data-transition="slide">Add Film</a> <a href="#watchList"data-transition="slide">Watch List</a>
     </div> 
 	<div id='searchFilm2' class='genrePad' data-role="content" data-position="inline"><p>placeholder</p></div>
 </div>

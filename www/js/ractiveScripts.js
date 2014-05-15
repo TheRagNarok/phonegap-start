@@ -125,6 +125,8 @@ addF = new Ractive ({
 			window.location = "index.html";
 		},
 		
+		
+		
 		select: function (event, value, id2){
 			
 		if (aOne == value){aOne = "select"; this.set({genre1:aOne});$('#' + id2).css("opacity", 1.0);} // unselect first
@@ -181,6 +183,7 @@ genre2: "select",
   });
 observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
   $("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
+   $("#test").trigger("create");
 });
 
     <!----------------------------------- filmdb sub-functions  -------------------------------------->
