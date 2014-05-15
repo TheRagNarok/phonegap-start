@@ -57,7 +57,10 @@
 	</div>
   <p>{{genre1}} , {{genre2}}.</p>
   
-<button on-tap='find'>Reset</button>
+	<div class="top" data-role="controlgroup" data-type="horizontal" >
+		<button on-tap='add:{{fTitle}}'>Add</button>
+		<button on-tap='reset'>Reset</button>
+	</div>
 <a data-role="button" href="#results" data-transition="slideup" data-mini="true" data-inline="true" on-tap='find:{{genre1}},{{genre2}}'>Find</a> 
 
 </script>
