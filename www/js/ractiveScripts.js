@@ -221,15 +221,17 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
 			if (items[i].title == sortedTitle) 
 				titleArrayPosition = items[i];  // search for title
-				
+				choice1 = "Add to watch list";
 		    }	
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
 			alert(fave);
 			if (fave === "Remove from watch list"){
-				alert("trying to remove");
-				items[titleArrayIndex].splice(4, 1, "fave:'Add to watch list'");}
+				
+				items[titleArrayIndex].splice(4, 1);
+				alert(title);
+			}
 			else {
-			items[titleArrayIndex].splice(4, 1, "fave:'Remove from watch list'");}
+			items[titleArrayIndex].push(4, 0, "Remove from watch list");}
 			
 		}
 		
