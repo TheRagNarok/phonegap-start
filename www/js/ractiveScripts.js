@@ -180,10 +180,7 @@ genre2: "select",
 
   });
 observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
-  alert( keypath + ' changed to ' + newValue );
-  $("#rlist").trigger("create");
-  $('#rlist').listview().listview('refresh');
-  $("#rlist").listview().listview('refresh');
+  $("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
 });
 
     <!----------------------------------- filmdb sub-functions  -------------------------------------->
