@@ -105,17 +105,20 @@
 				  <li>{{genreA}},{{genreB}}</li>
 				 <li> 
 				  <a data-role="button" on-tap='save:{{fave}},{{title}}' data-icon="star" data-iconpos="left">{{fave}}</a>
-				  <a href="#myPopupDialog" data-rel="popup" data-role="button" data-icon="delete" data-iconpos="left">Delete Film</a>
-				  </li>
+				  <a href="#{{title}}" data-rel="popup" data-role="button" value="{{title}}" data-icon="delete" data-iconpos="left">Delete Film</a>
+				  </li>			  
 				 </div>
+				    <div data-role="popup" id="{{title}}">
+  <div data-role="header"><h1>Delete Film</h1></div>
+  <div data-role="main" class="ui-content"><p>Are you sure you want to delete this film?</p>
+  <a data-role="button" on-tap='remove:{{title}}'>Yes</a>
+  <a href="index.html#results" data-role="button">Cancel</a>
 				 
     </ul>
               {{/ end of filminfo list }}
 			  </div>
-          
-<div data-role="popup" id="myPopupDialog">
-  <div data-role="header"><h1>Delete Film</h1></div>
-  <div data-role="main" class="ui-content"><p>Are you sure you want to delete this film?</p><a data-role="button" on-tap='remove:{{title}}'>Yes</a><a href="index.html#results" data-role="button">Cancel</a>
+       
+
                   </script>
                   
                   
