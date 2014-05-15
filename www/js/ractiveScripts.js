@@ -215,7 +215,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			
 		},	
 		
-		save: function(event, title, fave, genreA, genreB) {
+		save: function(event, fave, title, genreA, genreB) {
 			var sortedTitle = title;
 			var titleArrayPosition;
 			for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
@@ -224,8 +224,9 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 				
 		    }	
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
-			alert(fave);
+			alert(fave,title);
 			if (fave === "Remove from watch list"){
+				alert("trying to remove");
 				items[titleArrayIndex].splice(4, 1, "fave:'Add to watch list'");}
 			else {
 			items[titleArrayIndex].splice(4, 1, "fave:'Remove from watch list'");}
