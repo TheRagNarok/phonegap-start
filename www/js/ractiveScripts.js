@@ -67,7 +67,7 @@ searchF = new Ractive({
 			
 			else {
 				alert("bs");
-				filtered = filtered.sort(function() { return Math.random() - 0.5;})
+				filtered = items.sort(function() { return Math.random() - 0.5;})
 
 				filmdb.set({filminfo: filtered}); // update ractive
 			     }
