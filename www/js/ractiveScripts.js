@@ -24,41 +24,7 @@ searchF = new Ractive({
 	searchF.on({
 		<!----------------------------------- genrePad select --------------------------------------------------->
 		
-		select: function (event, id){
-			node = event.node.getAttribute( 'value' );
-		   // id = this.id;
-		    alert(id);
-		   alert($('#' + id));
-			
-			var $img = $(this);
-	   var id = $img.attr("id");
-	
-	
-		if (one == node){one = "select"; this.set({genre1:one});$("#item").css("opacity", 1.0);} // unselect first
-		else if (two == node){two = "select"; this.set({genre2:two});$("#item").css("opacity", 1.0);} // unselect second
 		
-		else if (one == "select" && two != "select"){
-			one = node;
-			this.set({genre1:one}); // first selected if second has a value and first does not
-			$("#item").css("opacity", 0.3);	
-			}
-			else if (two == "select"){
-			if (one == "select")
-			{
-			one = node;
-			this.set({genre1:one}); // first selected
-			$('#' + id).css("opacity", 0.3); 
-				
-			}
-			else {
-				two = node;
-				this.set({genre2:two});  // second selected
-				$("#item").css("opacity", 0.3);
-				}
-			}
-					
-	
-		},
 		
 		find: function ( event, genre1, genre2) {
 			
@@ -229,3 +195,39 @@ genre2: "select",
   }
   });
   }
+  
+  function  select(id){
+			node = event.node.getAttribute( 'value' );
+		   // id = this.id;
+		    alert(id);
+		   alert($('#' + id));
+			
+			var $img = $(this);
+	   var id = $img.attr("id");
+	
+	
+		if (one == node){one = "select"; this.set({genre1:one});$("#item").css("opacity", 1.0);} // unselect first
+		else if (two == node){two = "select"; this.set({genre2:two});$("#item").css("opacity", 1.0);} // unselect second
+		
+		else if (one == "select" && two != "select"){
+			one = node;
+			this.set({genre1:one}); // first selected if second has a value and first does not
+			$("#item").css("opacity", 0.3);	
+			}
+			else if (two == "select"){
+			if (one == "select")
+			{
+			one = node;
+			this.set({genre1:one}); // first selected
+			$('#' + id).css("opacity", 0.3); 
+				
+			}
+			else {
+				two = node;
+				this.set({genre2:two});  // second selected
+				$("#item").css("opacity", 0.3);
+				}
+			}
+					
+	
+		}

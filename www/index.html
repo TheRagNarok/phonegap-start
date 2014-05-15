@@ -12,8 +12,9 @@
      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <!-- /*  <link rel="stylesheet" type="text/css" href="css/index.css" />*/-->
     
-<!-----------------------------------Jquery css ----------------------------------------------------->   
+<!-----------------------------------JQM css ----------------------------------------------------->   
    <link rel="stylesheet" href="themes/fafstyle.min.css" />
+    <link rel="stylesheet" href="/themes/jquery.mobile.icons.min.css" />
    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
         
         
@@ -49,7 +50,7 @@
 			
 			 <div id="container1">
     <ul class="numpad">
-       <li on-tap='select(this.id)' id='item' value='Action'> <img id='item' src="images/gpAction.png" /></li>
+       <li on-tap='select:{{genre}}' id='item' value='{{genre}}'> <img id='item' src="images/gpAction.png" /></li>
        <li onclick='select(this.id);' id='item2'value='Adventure'> <img id='item2' src="images/gpAdventure.png"/></li> 
        <li on-tap='select' value='Comedy'> <img src="images/gpComedy.png" /></li>
        <li on-tap='select' value='Fantasy'> <img src="images/gpFantasy.png" /></li>
