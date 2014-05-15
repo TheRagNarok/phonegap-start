@@ -200,7 +200,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 		remove: function ( event, title) { // Remove item
 			var sortedTitle = title;
 			var titleArrayPosition;
-	       $('#rlist').listview('refresh');
+
 		   for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
 			if (items[i].title == sortedTitle) 
 				titleArrayPosition = items[i];  // search for title
@@ -213,7 +213,24 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			window.localStorage.setArray("filmstore", items); // update changes
 				
 			
-		},		
+		},	
+		
+		save: function(event, title, fave) {
+			var sortedTitle = title;
+			var titleArrayPosition;
+			for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
+			if (items[i].title == sortedTitle) 
+				titleArrayPosition = items[i];  // search for title
+				
+		    }	
+			var titleArrayIndex = items.indexOf(titleArrayPosition);
+			
+			if (fave === "Remove from watch list"){
+				items.splice(titleArrayIndex.splice(4, 1, "Add to watch list"));}
+			else {
+			items.splice(titleArrayIndex.splice(4, 1, "Remove from watch list"));}
+			
+		}
 		
 	});
 	
@@ -224,7 +241,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
   template: '#favePage',
   data: {
 
-    filminfo: items.filter(function (el) {return (el.fave === "on watch");}),
+    filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");}),
 	
     sort: function ( array, column ) {
       array = array.slice(); // clone, so we don't modify the underlying data
