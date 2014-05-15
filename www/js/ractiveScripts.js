@@ -30,7 +30,7 @@ searchF = new Ractive({
 		<!----------------------------------- genrePad select --------------------------------------------------->
 		
 		select: function (event, value, id){
-	
+	alert(id);
 		if (one == value){one = "select"; this.set({genre1:one});$('#' + id).css("opacity", 1.0);} // unselect first
 		else if (two == value){two = "select"; this.set({genre2:two});$('#' + id).css("opacity", 1.0);} // unselect second
 		
@@ -116,6 +116,7 @@ addF = new Ractive ({
 		},
 		
 		select: function (event, value, id2){
+			alert(id2);
 	
 		if (aOne == value){aOne = "select"; this.set({genre1:aOne});$('#' + id2).css("opacity", 1.0);} // unselect first
 		else if (aTwo == value){aTwo = "select"; this.set({genre2:aTwo});$('#' + id2).css("opacity", 1.0);} // unselect second
