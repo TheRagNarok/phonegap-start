@@ -66,10 +66,13 @@ searchF = new Ractive({
 				}
 			
 			else {
-				alert("bs");
 				filtered = items.sort(function() { return Math.random() - 0.5;})
-				$('#resultslist').listview('refresh');
-				filmdb.set({filminfo: filtered}); // update ractive
+				
+				filmdb.set({
+					filminfo: filtered
+					
+					}); // update ractive
+					$('#resultslist').listview('refresh');
 			     }
 		}
 	});
@@ -171,6 +174,7 @@ genre2: "select",
     },
     
   }
+  
   });
 
 
