@@ -11,9 +11,11 @@ else {
 
 
 var filtered = items;
-var one,two,aOne,aTwo = "select";
-
-var fTitle = "Enter film title";
+var one = "select";
+var two = "select";
+var aOne = "select";
+var aTwo = "select";
+var fTitle = "none";
 
 function ractiveSetup(){
 searchF = new Ractive({
@@ -85,7 +87,7 @@ addF = new Ractive ({
 		 
 		add: function ( event, fTitle) {
 			
-			if (aTwo != "select" && aOne != "select" && fTitle != "Enter film title")
+			if (aTwo != "select" && aOne != "select" && fTitle != "none")
 			{
 				
 			 var newFilm = {
