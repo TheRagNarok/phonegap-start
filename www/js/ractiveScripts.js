@@ -177,12 +177,13 @@ genre2: "select",
     },
     
   }
-  
+
   });
 observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
   alert( keypath + ' changed to ' + newValue );
-  $('#rlist').listview('refresh');
+  $("#rlist").trigger("create");
   $('#rlist').listview().listview('refresh');
+  $("#rlist").listview().listview('refresh');
 });
 
     <!----------------------------------- filmdb sub-functions  -------------------------------------->
