@@ -184,7 +184,7 @@ genre2: "select",
 	
 		sort: function ( event, column ) { // sort column
 			this.set( 'sortColumn', column );
-			$('#rlist').listview('refresh');
+			
 		},
 	
 	<!----------------------------------- remove selected film -------------------------------------------->	
@@ -192,7 +192,7 @@ genre2: "select",
 		remove: function ( event, title) { // Remove item
 			var sortedTitle = title;
 			var titleArrayPosition;
-	
+	$('#rlist').listview('refresh');
 		   for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
 			if (items[i].title == sortedTitle) 
 				titleArrayPosition = items[i];  // search for title
