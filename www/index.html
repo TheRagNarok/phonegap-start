@@ -43,9 +43,8 @@
             <div id="deviceready">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received"></p>
-             
-         
-  <script id='searchPage' type='text/ractive'>
+              <div align="center">
+                  <script id='searchPage' type='text/ractive'>
 <!----------------------------------- genrePad ------------------------------------------------------->			
 			
 			<div id="container">
@@ -58,12 +57,12 @@
   <p>{{genre1}} , {{genre2}}.</p>
   
 
-<a class="findbtn" href="#results" on-tap='find:{{genre1}},{{genre2}}'>Find</a> 
+<a class="findbtn" href="#results" on-tap='find:{{genre1}},{{genre2}}'>Find!</a> 
 
-</script>
-
-
-<script id='addPage' type='text/ractive'>
+                  </script>
+                  
+                  
+                <script id='addPage' type='text/ractive'>
 <!----------------------------------- Add form ------------------------------------------------------->
 
 <div id="container1">
@@ -84,9 +83,9 @@
 	</div>
 	
 	
-</script>
-
-<script id='appView' type='text/ractive'>
+                  </script>
+                  
+                <script id='appView' type='text/ractive'>
 		
 <!----------------------------------- film list View ------------------------------------------------------>
 <div data-role="content">
@@ -96,12 +95,13 @@
     <form class="ui-filterable">
       <input id="myFilter" data-type="search" placeholder="Search for a film..">
     </form>
-	<div data-role="collapsible-set" data-mini="true">
+	
     <ul id="rlist" data-role="listview" data-filter="true" data-input="#myFilter" data-split-theme="a" data-split-icon="delete" data-inset="true">
+	<div data-role="collapsible-set" data-mini="true">
               {{# sort( filminfo, sortColumn ) :i}}
                 
 				 <div data-role="collapsible">
-    			<h4>{{title}} <a data-role="button" on-tap='remove:{{title}}'  data-icon="delete" data-iconpos="notext">Delete</a></h4>
+    			<h4>{{title}} <div data-role="controlgroup" data-role="horizontal"><a data-role="button" on-tap='remove:{{title}}'  data-icon="delete" data-iconpos="notext">Delete</a><a data-role="button" on-tap='remove:{{title}}'  data-icon="delete" data-iconpos="notext">Delete</a></div></h4>
 				  <li>{{genreA}},{{genreB}}</li>
                   <li>{{fave}}</li>
 				 </div>
@@ -110,11 +110,11 @@
               {{/ end of filminfo list }}
 			  </div>
           
-</script>
-
-
-
-<script id='favePage' type='text/ractive'>
+                  </script>
+                  
+                  
+                  
+                <script id='favePage' type='text/ractive'>
 
 <div data-role="collapsible-set" data-mini="true">
     <ul data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
@@ -128,11 +128,12 @@
     </ul>
               {{/ end of filminfo list }}
 			  </div>
-</script>
-
-
-<div data-role="page" id="one" data-theme="a"> 
-    <div data-role="header" data-position="inline">
+                  </script>
+                  
+                  
+              </div>
+              <div data-role="page" id="one" data-theme="a"> 
+                <div data-role="header" data-position="inline">
     <p></p>
         <h1>FindAFilm</h1><a href="#AddFilm"data-transition="slide">Add Film</a> <a href="#watchList"data-transition="slide">Watch List</a>
     </div> 
