@@ -68,14 +68,13 @@
 <div id="container1">
 		<ul class="genrepad">
 			{{#genreinfo:i}}
-			<li on-tap='select:{{value}},{{id}}' id={{id}}> <img src={{img}} /></li>		
+			<li on-tap='select:{{value}},{{id2}}' id={{id}}> <img src={{img}} /></li>		
         </ul>
 			{{/genreinfo}}
 	</div>
 	  <p>{{genre1}} , {{genre2}}.</p>
   
 <label><input value='{{fTitle}}'placeholder="Enter film title"></label>
-<span id="errmsg"></span>
 <p>{{fTitle}} will be added.</p>
 
 	<div class="top" data-role="controlgroup" data-type="horizontal" >
