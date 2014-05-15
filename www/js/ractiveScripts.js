@@ -115,7 +115,7 @@ addF = new Ractive ({
 			window.location.reload();
 		},
 		
-		select: function (event, value, id2){
+		select: function (event, value, id){
 			alert(id2);
 	
 		if (aOne == value){aOne = "select"; this.set({genre1:aOne});$('#' + id2).css("opacity", 1.0);} // unselect first
@@ -143,8 +143,6 @@ addF = new Ractive ({
 			
 			}
 		});
-
-
 
 
 	
