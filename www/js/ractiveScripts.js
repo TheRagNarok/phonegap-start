@@ -68,8 +68,8 @@ searchF = new Ractive({
 			
 			else {
 				
-				filtered = items.filter(function() {return 0.5 - Math.random()})[1];
-				filmdb.set({filminfo: filtered});} // update ractive}
+				filtered = items.sort(function() {return 0.5 - Math.random()})[1];
+				filmdb.set({filminfo: filtered});} // update ractive
 		}
 	});
 	
