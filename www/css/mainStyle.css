@@ -70,7 +70,7 @@ opacity:0.3;
 filter:alpha(opacity=30); /* For IE8 and earlier
 }*/
 
-.findbtn {
+.findbtn, .findbtn a {
 	background-color:#ffcc33;
 	-webkit-border-top-left-radius:4px;
 	-moz-border-radius-topleft:4px;
