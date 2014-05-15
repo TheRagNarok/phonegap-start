@@ -66,9 +66,8 @@ searchF = new Ractive({
 			
 			//else {
 				alert("bs");
-				filtered = items.sort(function() {
-   return Math.random() - 0.5;
-});
+				
+
 				filmdb.set({filminfo: filtered}); // update ractive
 			//     }
 		}
@@ -158,7 +157,9 @@ addF = new Ractive ({
 genre1: "select",
 genre2: "select",
 		
-    filminfo: filtered,
+    filminfo: filtered.sort(function() {
+   return Math.random() - 0.5;}) ,
+
 	
     sort: function ( array, column ) {
       array = array.slice(); // clone, so we don't modify the underlying data
