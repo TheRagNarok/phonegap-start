@@ -86,7 +86,7 @@ addF = new Ractive ({
 		 
 		add: function ( event, fTitle) {
 			
-			if (aTwo != "select" && aOne != "select" && fTitle != "")
+			if (aTwo != "select" && aOne != "select" && fTitle != "Enter film title")
 			{
 				
 			 var newFilm = {
