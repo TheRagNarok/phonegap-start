@@ -6,16 +6,22 @@ var items = new Array();
 
 
 var films = [
-    { genreA:'Mystery',  genreB:'Adventure', title: 'Todo list page', year: '2014', fave: 'Remove from watch list' },
-    { genreA:'Romance',  genreB:'Comedy',    title: 'Search page', year: '2014', fave: 'Remove from watch list' },
-    { genreA:'Action',   genreB:'Adventure', title: 'Harry Potter and the Philosophers Stone', year: '2001', fave: 'Add to watch list'},
-    { genreA:'Musical',  genreB:'Thriller',  title: 'Harry Potter and the Chamber of Secrets', year: '2002', fave: 'Add to watch list'},
-    { genreA:'Western',  genreB:'Comedy',    title: 'Harry Potter and the Prisoner of Azkaban', year: '2004', fave: 'Remove from watch list'},
-    { genreA:'Scifi',    genreB:'Musical',   title: 'Harry Potter and the Goblet of Fire', year: '2005', fave: 'Remove from watch list'},
-    { genreA:'Thriller', genreB:'Historical',title: 'Harry Potter and the Order of the Phoenix', year: '2007', fave: 'Add to watch list'},
-    { genreA:'Horror',   genreB:'Fantasy',   title: 'Harry Potter and the Half-Blood Prince', year: '2009', fave: 'Add to watch list'},
-    { genreA:'Western',  genreB:'Action',    title: 'Harry Potter and the Deathly Hallows – Part 1', year: '2010', fave: 'Add to watch list'},
-    { genreA:'Horror',   genreB:'Mystery',   title: 'Harry Potter and the Deathly Hallows – Part 2', year: '2011', fave: 'Add to watch list'}
+
+    { genreA:'Action',   genreB:'Adventure', title: 'Harry Potter and the Philosophers Stone', fave: 'Add to watch list'},
+    { genreA:'Musical',  genreB:'Thriller',  title: 'Harry Potter and the Chamber of Secrets',  fave: 'Add to watch list'},
+    { genreA:'Western',  genreB:'Comedy',    title: 'Harry Potter and the Prisoner of Azkaban',  fave: 'Remove from watch list'},
+    { genreA:'Scifi',    genreB:'Musical',   title: 'Harry Potter and the Goblet of Fire', fave: 'Remove from watch list'},
+    { genreA:'Thriller', genreB:'Historical',title: 'Harry Potter and the Order of the Phoenix', fave: 'Add to watch list'},
+    { genreA:'Horror',   genreB:'Fantasy',   title: 'Harry Potter and the Half-Blood Prince',fave: 'Add to watch list'},
+    { genreA:'Western',  genreB:'Action',    title: 'Harry Potter and the Deathly Hallows – Part 1', fave: 'Add to watch list'},
+    { genreA:'Horror',   genreB:'Mystery',   title: 'Harry Potter and the Deathly Hallows – Part 2', fave: 'Add to watch list'},
+	{ genreA:'Action',   genreB:'Historical',   title: 'Gladiator', fave: 'Add to watch list'},
+	{ genreA:'Scifi',    genreB:'Fantasy',   title: 'Avatar', fave: 'Add to watch list'},
+	{ genreA:'Romance',  genreB:'Historical',   title: 'Titanic', fave: 'Add to watch list'},
+	{ genreA:'Scifi',    genreB:'Action',   title: 'The Avengers', fave: 'Add to watch list'},
+	{ genreA:'Scifi',    genreB:'Action',   title: 'Iron Man 3', fave: 'Add to watch list'},
+	{ genreA:'Scifi',    genreB:'Action',   title: 'Iron Man 2', fave: 'Add to watch list'},
+	{ genreA:'Scifi',    genreB:'Action',   title: 'Iron Man', fave: 'Add to watch list'},
 ];
 
 
