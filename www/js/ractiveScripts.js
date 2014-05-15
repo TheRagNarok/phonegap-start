@@ -232,7 +232,9 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			}
 			else {
 				alert("trying to add");
-			items[titleArrayIndex].splice(4, 0, "Remove from watch list");alert("added");}
+			items[titleArrayIndex].splice(4, 0, "Remove from watch list");
+			alert("added");
+			}
 			
 		}
 		
