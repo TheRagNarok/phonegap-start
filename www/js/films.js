@@ -21,21 +21,19 @@ var films = [
 
 
 var genre = [
-  { value:'Action',	    id:'ac', img:'images/gpAction.png' },
-  { value:'Adventure',	id:'ad', img:'images/gpAdventure.png' },
-  { value:'Comedy', 	id:'co', img:'images/gpComedy.png' },
-  { value:'Fantasy',	id:'fa', img:'images/gpFantasy.png' },
-  { value:'Historical', id:'hi', img:'images/gpHistorical.png' },
-  { value:'Horror', 	id:'ho', img:'images/gpHorror.png' },
-  { value:'Mystery',	id:'my', img:'images/gpMystery.png' },
-  { value:'Musical',	id:'mu', img:'images/gpMusical.png' },
-  { value:'Romance', 	id:'ro', img:'images/gpRomance.png' },
-  { value:'Scifi',      id:'sc', img:'images/gpScifi.png' },
-  { value:'Thriller',   id:'th', img:'images/gpThriller.png' },
-  { value:'Western',    id:'we', img:'images/gpWestern.png' },
+  { value:'Action',	    id:'ac', id2:'act', img:'css/themes/images/gpAction.png' },
+  { value:'Adventure',	id:'ad', id2:'adv', img:'css/themes/images/gpAdventure.png' },
+  { value:'Comedy', 	id:'co', id2:'com', img:'css/themes/images/gpComedy.png' },
+  { value:'Fantasy',	id:'fa', id2:'fan', img:'css/themes/images/gpFantasy.png' },
+  { value:'Historical', id:'hi', id2:'his', img:'css/themes/images/gpHistorical.png' },
+  { value:'Horror', 	id:'ho', id2:'hor', img:'css/themes/images/gpHorror.png' },
+  { value:'Mystery',	id:'my', id2:'mys', img:'css/themes/images/gpMystery.png' },
+  { value:'Musical',	id:'mu', id2:'mus', img:'css/themes/images/gpMusical.png' },
+  { value:'Romance', 	id:'ro', id2:'rom', img:'css/themes/images/gpRomance.png' },
+  { value:'Scifi',      id:'sc', id2:'sci', img:'css/themes/images/gpScifi.png' },
+  { value:'Thriller',   id:'th', id2:'thr', img:'css/themes/images/gpThriller.png' },
+  { value:'Western',    id:'we', id2:'wes', img:'css/themes/images/gpWestern.png' },
 ];
-
-
 
 
 

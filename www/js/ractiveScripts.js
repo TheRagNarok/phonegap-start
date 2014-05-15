@@ -116,28 +116,27 @@ addF = new Ractive ({
 		},
 		
 		select: function (event, value, id2){
-	    id=id2;
-		alert(id);
-		if (aOne == value){aOne = "select"; this.set({genre1:aOne});$('#' + id).css("opacity", 1.0);} // unselect first
-		else if (aTwo == value){aTwo = "select"; this.set({genre2:aTwo});$('#' + id).css("opacity", 1.0);} // unselect second
+			
+		if (aOne == value){aOne = "select"; this.set({genre1:aOne});$('#' + id2).css("opacity", 1.0);} // unselect first
+		else if (aTwo == value){aTwo = "select"; this.set({genre2:aTwo});$('#' + id2).css("opacity", 1.0);} // unselect second
 		
 		else if (aOne == "select" && aTwo != "select"){
 			aOne = value;
 			this.set({genre1:aOne}); // first selected if second has a value and first does not
-			$('#' + id).css("opacity", 0.3);	
+			$('#' + id2).css("opacity", 0.3);	
 			}
 			else if (aTwo == "select"){
 			if (aOne == "select")
 			{
 			aOne = value;
 			this.set({genre1:aOne}); // first selected
-			$('#' + id).css("opacity", 0.3); 
+			$('#' + id2).css("opacity", 0.3); 
 				
 			}
 			else {
 				aTwo = value;
 				this.set({genre2:aTwo});  // second selected
-				$('#' + id).css("opacity", 0.3);
+				$('#' + id2).css("opacity", 0.3);
 				}
 			}
 			
