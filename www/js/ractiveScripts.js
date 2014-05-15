@@ -24,7 +24,7 @@ searchF = new Ractive({
 		data:{
 			  genreinfo: genre,
 			 }
-  
+
   });
 	
 	searchF.on({
@@ -73,7 +73,9 @@ searchF = new Ractive({
 					
 					}); // update ractive
 					$('#rlist').listview('refresh');
+					
 			     }
+				 resuts();
 		}
 	});
 	
@@ -152,7 +154,7 @@ addF = new Ractive ({
 		});
 
 
-	
+	function results(){
 	filmdb = new Ractive({
 	
   el: 'output',
@@ -192,7 +194,7 @@ genre2: "select",
 		remove: function ( event, title) { // Remove item
 			var sortedTitle = title;
 			var titleArrayPosition;
-	$('#rlist').listview('refresh');
+	       $('#rlist').listview('refresh');
 		   for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
 			if (items[i].title == sortedTitle) 
 				titleArrayPosition = items[i];  // search for title
@@ -209,7 +211,7 @@ genre2: "select",
 		
 	});
 	
-	
+	}
 	faveF = new Ractive({
 		
   el: 'faves',
