@@ -73,6 +73,9 @@ searchF = new Ractive({
 addF = new Ractive ({
 	el: 'addFilm',
 	template:'#addPage',
+	data:{
+			  genreinfo: genre,
+			 }
 	});
 	<!----------------------------------- add new film ------------------------------------------------------>
 		addF.on({	
@@ -112,18 +115,10 @@ addF = new Ractive ({
 			window.location.reload();
 		},
 		
-		select: function (event, id){
-			node = event.node.getAttribute( 'value' );
-		   // id = this.id;
-		   alert(id);
-		   alert($('#' + id));
-			
-			var $img = $(this);
-	   var id = $img.attr("id");
+		select: function (event, value, id){
 	
-	
-		if (aOne == node){aOne = "select"; this.set({genre1:aOne});$("#item").css("opacity", 1.0);} // unselect first
-		else if (aTwo == node){aTwo = "select"; this.set({genre2:aTwo});$("#item").css("opacity", 1.0);} // unselect second
+		if (aOne == node){aOne = "select"; this.set({genre1:aOne});$('#' + id).css("opacity", 1.0);} // unselect first
+		else if (aTwo == node){aTwo = "select"; this.set({genre2:aTwo});$('#' + id).css("opacity", 1.0);} // unselect second
 		
 		else if (aOne == "select" && aTwo != "select"){
 			aOne = node;
@@ -141,7 +136,7 @@ addF = new Ractive ({
 			else {
 				aTwo = node;
 				this.set({genre2:aTwo});  // second selected
-				$("#item").css("opacity", 0.3);
+				$('#' + id).css("opacity", 0.3);
 				}
 			}
 					
