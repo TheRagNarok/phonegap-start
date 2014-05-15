@@ -65,7 +65,11 @@ searchF = new Ractive({
 			
 			
 			}
-			else {filmdb.update({filminfo: filtered});} // update ractive}
+			
+			else {
+				
+				filtered = items.sort(function() {return 0.5 - Math.random()})[1] + [2];
+				filmdb.update({filminfo: filtered});} // update ractive}
 		}
 	});
 	
