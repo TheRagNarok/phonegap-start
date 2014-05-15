@@ -29,7 +29,7 @@ input {
 
 #container, #container1 { 
   padding-top: 40px;
-  width: 80%;
+  width: 95%;
   height: 195px;
   position: relative;
   border: 1px solid #eee;
@@ -45,7 +45,7 @@ input {
 }
 
 .genrepad li {
-  font-size: 32px;
+  font-size: 44px;
   float: left;
   list-style: none;
   text-align: center;
