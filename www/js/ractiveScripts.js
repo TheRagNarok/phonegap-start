@@ -11,10 +11,9 @@ else {
 
 
 var filtered = items;
-var one = "select";
-var two = "select";
-var aOne = "select";
-var aTwo = "select";
+var one,two,aOne,aTwo = "select";
+
+var fTitle = "Enter film title";
 
 function ractiveSetup(){
 searchF = new Ractive({
