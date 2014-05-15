@@ -59,18 +59,18 @@ searchF = new Ractive({
 		
 		find: function (event) {
 			
-			//if (one != "select" || two != "select")
-		//		{			
-			//	filtered = items.filter(function (el) {return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);}); // filter item one or one and two
-			//	filmdb.set({filminfo: filtered}); // update ractive
-			//	}
+			if (one != "select" || two != "select")
+				{			
+				filtered = items.filter(function (el) {return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);}); // filter item one or one and two
+				filmdb.set({filminfo: filtered}); // update ractive
+				}
 			
-			//else {
+			else {
 				alert("bs");
 				filtered = filtered.sort(function() { return Math.random() - 0.5;})
 
 				filmdb.set({filminfo: filtered}); // update ractive
-			//     }
+			     }
 		}
 	});
 	
