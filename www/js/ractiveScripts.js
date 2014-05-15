@@ -226,12 +226,13 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
 			alert(fave);
 			if (fave === "Remove from watch list"){
-				
+				alert("trying to remove");
 				items[titleArrayIndex].splice(4, 1);
-				alert(title);
+				alert("removed");
 			}
 			else {
-			items[titleArrayIndex].push(4, 0, "Remove from watch list");}
+				alert("trying to add");
+			items[titleArrayIndex].splice(4, 0, "Remove from watch list");alert("added");}
 			
 		}
 		
