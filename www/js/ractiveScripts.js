@@ -1,24 +1,27 @@
-if (window.localStorage.getItem("first") === null )
+if (window.localStorage.getItem("first") === null )// if item first does not exist
  {
-	window.localStorage.setItem("first", "no");
-	window.localStorage.setItem("filmstore",JSON.stringify(films));
-	items = JSON.parse(window.localStorage.getItem("filmstore"));
+	window.localStorage.setItem("first", "no"); // create first, with a value of no
+	window.localStorage.setItem("filmstore",JSON.stringify(films)); //set initial filmstore list from the default film array in films.js
+	items = JSON.parse(window.localStorage.getItem("filmstore")); //set items to equal this list
 }
 else {
-	items = JSON.parse(window.localStorage.getItem("filmstore"));
+	items = JSON.parse(window.localStorage.getItem("filmstore")); // if not being run for the first time then get the items list from filmstore
 	
 }
 
 
-var filtered = items;
+var filtered = items; // set up global variables
 var one = "select";
 var two = "select";
 var aOne = "select";
 var aTwo = "select";
 var fTitle = "none";
 
-function ractiveSetup(){
-searchF = new Ractive({
+
+// all ractive based scripts go here, e.g. new ractives and ractive events such as ractive.on and ractive.observe
+function ractiveSetup(){ 
+	
+searchF = new Ractive({ //search page (home) ractive
 	el: '.genrePad',
 	template:'#searchPage',
 		data:{
@@ -30,7 +33,7 @@ searchF = new Ractive({
 	searchF.on({
 		<!----------------------------------- genrePad select --------------------------------------------------->
 		
-		select: function (event, value, id){
+		select: function (event, value, id){ // linked to on-tap event of each genre list item
 			
 		if (one == value){one = "select"; this.set({genre1:one});$('#' + id).css("opacity", 1.0);} // unselect first
 		else if (two == value){two = "select"; this.set({genre2:two});$('#' + id).css("opacity", 1.0);} // unselect second
@@ -38,7 +41,7 @@ searchF = new Ractive({
 		else if (one == "select" && two != "select"){
 			one = value;
 			this.set({genre1:one}); // first selected if second has a value and first does not
-			$('#' + id).css("opacity", 0.3);	
+			$('#' + id).css("opacity", 0.3); // change opacity of the selected genre	
 			}
 			else if (two == "select"){
 			if (one == "select")
@@ -57,40 +60,37 @@ searchF = new Ractive({
 			
 			},
 		
-		find: function (event) {
+		find: function (event) { // triggered on-tap on find button
 			
 			if (one != "select" || two != "select")
 				{			
-				filtered = items.filter(function (el) {return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);}); // filter item one or one and two
-				filmdb.set({filminfo: filtered}); // update ractive
-				}
-			
-			else {
-				filtered = items.sort(function() { return Math.random() - 0.5;})
+				filtered = items.filter(function (el) // filter item by genre one or one and two
+				    {
+					return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);
+					}); 
 				
-				filmdb.set({
-					filminfo: filtered
-					
-					}); // update ractive
-					$('#rlist').listview('refresh');
-					
+				filmdb.set({filminfo: filtered}); // update ractive
+				}			
+			else {
+				filtered = items.sort(function() { return Math.random() - 0.5;}) // sort items list into a random order				
+				filmdb.set({filminfo: filtered}); // update filminfo variable in filmdb					
 			     }
-
 		}
 	});
 	
 
-addF = new Ractive ({
+addF = new Ractive ({ // add film page ractve
 	el: 'addFilm',
 	template:'#addPage',
 	data:{
-			  genreinfo: genre,
-			 }
+		  genreinfo: genre,
+		 }
 	});
 	<!----------------------------------- add new film ------------------------------------------------------>
-		addF.on({	
+	
+		addF.on({	// add film ractive sub-functions
 		 
-		add: function ( event, fTitle) {
+		add: function ( event, fTitle) { // linked to add film button
 			
 			if (aTwo != "select" && aOne != "select" && fTitle != "none")
 			{
@@ -119,7 +119,7 @@ addF = new Ractive ({
 		
 		<!----------------------------------- reset app ------------------------------------------------------->	
 	
-		reset: function ( event ) {
+		reset: function ( event ) { // linked to reset button
 			window.localStorage.removeItem('first');
 			alert("app reset");
 			window.location = "index.html";
@@ -127,7 +127,7 @@ addF = new Ractive ({
 		
 		
 		
-		select: function (event, value, id2){
+		select: function (event, value, id2){ // linked to on-tap event of each genre list item
 			
 		if (aOne == value){aOne = "select"; this.set({genre1:aOne});$('#' + id2).css("opacity", 1.0);} // unselect first
 		else if (aTwo == value){aTwo = "select"; this.set({genre2:aTwo});$('#' + id2).css("opacity", 1.0);} // unselect second
@@ -158,7 +158,7 @@ addF = new Ractive ({
 
 
 
-	filmdb = new Ractive({
+	filmdb = new Ractive({ // film database results page ractive
 	
   el: 'output',
   template: '#appView',
@@ -183,11 +183,11 @@ genre2: "select",
   });
 observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
   $("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
-   $("#test").trigger("create");
 });
 
-    <!----------------------------------- filmdb sub-functions  -------------------------------------->
-	filmdb.on( {
+
+	filmdb.on( { // add film ractive sub-functions
+	
 	<!----------------------------------- sort films -------------------------------------------------------->
 	
 		sort: function ( event, column ) { // sort column
@@ -218,7 +218,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 	});
 	
 	
-	faveF = new Ractive({
+	faveF = new Ractive({ // favourites / watch list page ractive
 		
   el: 'faves',
   template: '#favePage',
