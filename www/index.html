@@ -124,8 +124,9 @@
               {{# sort( filminfo, sortColumn ) :i}}
                 
 				 <div data-role="collapsible">
-    			<h4>{{title}} <a data-role="button" on-tap='remove:{{title}}'  data-icon="delete" data-iconpos="notext">Delete</a></h4>
-                  <li>{{fave}}</li>
+    			<h4>{{title}}</h4>
+				<li>{{genreA}},{{genreB}}</li>
+                  <a data-role="button" on-tap='save:{{fave}},{{title}}' data-icon="star" data-iconpos="left">{{fave}}</a>
 				 </div>
 				 
     </ul>
