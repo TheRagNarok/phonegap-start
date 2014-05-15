@@ -117,7 +117,7 @@ addF = new Ractive ({
 		reset: function ( event ) {
 			window.localStorage.removeItem('first');
 			alert("app reset");
-			window.location.reload();
+			window.location = "index.html";
 		},
 		
 		select: function (event, value, id2){
