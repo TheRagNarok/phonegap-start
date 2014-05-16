@@ -99,6 +99,7 @@ addF = new Ractive ({ // add film page ractve
 		  genreinfo: genre,
 		  genre1: "select",
 		  genre2: "select",
+		  message:"test",
 		 }
 	});
 	<!----------------------------------- add new film ------------------------------------------------------>
