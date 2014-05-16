@@ -114,7 +114,7 @@ addF = new Ractive ({ // add film page ractve
 			 genreA: aOne,
 			 genreB: aTwo,
 			 title: fTitle,
-			 fave: 'z'
+			 fave: 'Add to watch list'
 			};
 
 			items.push( newFilm );
@@ -123,6 +123,9 @@ addF = new Ractive ({ // add film page ractve
 			filmdb.set({filminfo: filtered}); // update ractive
 			aOne = "select";
 			aTwo = "select";
+			genre1 = "select";
+		    genre2 = "select";
+			fTitle = "";
 			}
 			
 			else {

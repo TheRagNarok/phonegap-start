@@ -54,11 +54,11 @@
         </ul>
 			{{/genreinfo}}
 	</div>
- <div align="center"> <p>{{genre1}},{{genre2}}.</p></div>
+ <div align="center"> <p>{{genre1}}     {{genre2}}</p></div>
   
-<div id="fbtnContainer">
+
 <a class="findbtn" href="#results" on-tap='find:{{genre1}},{{genre2}}'>Find!</a>
-</div> 
+
 
                   </script>
                   
@@ -73,10 +73,9 @@
         </ul>
 			{{/genreinfo}}
 	</div>
-	  <p>{{genre1}} , {{genre2}}.</p>
+	  <div align="center"> <p>{{genre1}}     {{genre2}}</p></div>
   
-<label><input value='{{fTitle}}'placeholder="Enter film title"></label>
-<p>{{fTitle}} will be added.</p>
+<label><input value='{{fTitle}}' placeholder="Enter film title"></label>
 
 	<div class="top" data-role="controlgroup" data-type="horizontal" >
 		<button on-tap='add:{{fTitle}}'>Add</button>
@@ -88,30 +87,24 @@
                   
                 <script id='appView' type='text/ractive'>
 		
-<!----------------------------------- film list View ------------------------------------------------------>
-<div data-role="content">
-
-</div>
-			  
+<!----------------------------------- film list View ------------------------------------------------------>			  
     <form class="ui-filterable">
       <input id="myFilter" data-type="search" placeholder="Search for a film..">
     </form>
 	<div data-role="collapsible-set" data-mini="true">
     <ul id="rlist" data-role="listview" data-filter="true" data-input="#myFilter" data-inset="true">
 	
-              {{# sort( filminfo, sortColumn ) :i}}
-                
-				 <div data-role="collapsible">
-    			<h4>{{title}}</h4>
-				  <li>{{genreA}},{{genreB}}</li>
-				 <li> 
-				  <a data-role="button" on-tap='save:{{fave}},{{title}},{{genreA}},{{genreB}}' data-icon="star" data-iconpos="left">{{fave}}</a>
-				  <a data-role="button" on-tap='remove:{{title}}' data-icon="delete" data-iconpos="left">Delete Film</a>
-				  </li>
-				 </div>
-				 
+     {{# sort( filminfo, sortColumn ) :i}}
+      	    <div data-role="collapsible">
+    		  <h4>{{title}}</h4>
+			  <li>{{genreA}},{{genreB}}</li>
+			  <li> 
+			  <a data-role="button" on-tap='save:{{fave}},{{title}},{{genreA}},{{genreB}}' data-icon="star" data-iconpos="left">{{fave}}</a>
+			  <a data-role="button" on-tap='remove:{{title}}' data-icon="delete" data-iconpos="left">Delete Film</a>
+			  </li>
+	    	</div>			 
     </ul>
-              {{/ end of filminfo list }}
+     {{/ end of filminfo list }}
 			  </div>
           
                   </script>
