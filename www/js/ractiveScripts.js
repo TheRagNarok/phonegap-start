@@ -37,6 +37,8 @@ searchF = new Ractive({ //search page (home) ractive
 	template:'#searchPage',
 		data:{
 			  genreinfo: genre,
+			  genre1: "select",
+			  genre2: "select",
 			 }
 
   });
@@ -95,6 +97,8 @@ addF = new Ractive ({ // add film page ractve
 	template:'#addPage',
 	data:{
 		  genreinfo: genre,
+		  genre1: "select",
+		  genre2: "select",
 		 }
 	});
 	<!----------------------------------- add new film ------------------------------------------------------>
