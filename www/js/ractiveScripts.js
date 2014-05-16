@@ -97,8 +97,7 @@ addF = new Ractive ({ // add film page ractve
 	template:'#addPage',
 	data:{
 		  genreinfo: genre,
-		  genre1: "select",
-		  genre2: "select",
+		  
 		 }
 	});
 	<!----------------------------------- add new film ------------------------------------------------------>
@@ -106,7 +105,8 @@ addF = new Ractive ({ // add film page ractve
 		addF.on({	// add film ractive sub-functions
 		 
 		add: function ( event, fTitle) { // linked to add film button
-			
+			genre1: "select";
+		  genre2: "select";
 			if (aTwo != "select" && aOne != "select" && fTitle != "none")
 			{
 				
@@ -123,14 +123,14 @@ addF = new Ractive ({ // add film page ractve
 			filmdb.set({filminfo: filtered}); // update ractive
 			aOne = "select";
 			aTwo = "select";
-			genre1 = "select";
+			filmdb.set({genre1:"select"});
 		    genre2 = "select";
 			fTitle = "";
 			}
 			
 			else {
 				//alert("please enter a title & select two genres");
-				$( "#dialog" ).dialog();
+			
 				}
 		
 		
