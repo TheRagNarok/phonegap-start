@@ -218,6 +218,8 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 		
 		save: function(event, fave, title, genreA, genreB) {
 			var sortedTitle = title;
+			genreA = gA;
+			genreB = gB;
 			var titleArrayPosition;
 			for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
 			if (items[i].title == sortedTitle) 
@@ -228,12 +230,28 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			alert(fave);
 			if (fave === "Remove from watch list"){
 				alert("trying to remove");
-				items.splice(titleArrayIndex, 1);
+				var newFilm = {
+			 genreA: gA,
+			 genreB: gB,
+			 title: sortedTitle,
+			 fave: "Add to watch list"
+			};
+				items.splice(titleArrayIndex, 1, newFilm);
 				alert(title + "removed");
 			}
 			else {
 				alert("trying to add");
-			items[titleArrayIndex].splice(4, 0, "Remove from watch list");
+				var newFilm = {
+			 genreA: gA,
+			 genreB: gB,
+			 title: sortedTitle,
+			 fave: "Remove from watch list"
+			};
+			items.splice(titleArrayIndex, 1, newFilm);
+			 
+
+			//items.push( newFilm );
+			//window.localStorage.setItem("filmstore",JSON.stringify(items));
 			alert("added");
 			}
 			
