@@ -215,7 +215,8 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
 				
 			items.splice(titleArrayIndex, 1);  // remove object (defined by index number) from items array
-			window.localStorage.setArray("filmstore", items); // update changes
+			window.localStorage.setItem("filmstore",JSON.stringify(items));
+			filmdb.set({filminfo: filtered}); // update ractive
 			window.location = "index.html#results";
 				
 			
