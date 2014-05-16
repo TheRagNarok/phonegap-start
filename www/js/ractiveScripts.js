@@ -311,7 +311,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Remove from watch list'});
 			
 			window.localStorage.setItem("filmstore",JSON.stringify(items));
-			faveF.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
+			this.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
 			}
 			
 		}
