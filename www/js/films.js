@@ -21,7 +21,7 @@ var films = [
 	{ genreA:'Scifi',    genreB:'Action',   title: 'The Avengers', fave: 'Add to watch list'},
 	{ genreA:'Scifi',    genreB:'Action',   title: 'Iron Man 3', fave: 'Add to watch list'},
 	{ genreA:'Scifi',    genreB:'Action',   title: 'Iron Man 2', fave: 'Add to watch list'},
-	{ genreA:'Scifi',    genreB:'Action',   title: 'Iron Man', fave: 'Add to watch list'},
+	{ genreA:'Scifi',    zgenreB:'Action',   title: 'Iron Man', fave: 'Add to watch list'},
 ];
 
 
