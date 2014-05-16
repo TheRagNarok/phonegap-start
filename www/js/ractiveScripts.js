@@ -238,12 +238,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			}
 			else {
 				alert("trying to add");
-				var newFilm = {
-			 genreA: gA,
-			 genreB: gB,
-			 title: sortedTitle,
-			 fave: "Remove from watch list"
-			};
+				
 			items.splice(titleArrayIndex, 1);
 			 
 
