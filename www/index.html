@@ -5,17 +5,15 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, width=device-width" />
        
-        <title>Test App</title>
-         
-        
+        <title>FindAFilm</title>
+              
      <link rel="stylesheet" type="text/css" media="all" href="css/mainStyle.css">
      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <!-- /*  <link rel="stylesheet" type="text/css" href="css/index.css" />*/-->
     
 <!-----------------------------------JQM css ----------------------------------------------------->   
-   <link rel="stylesheet" href="css/themes/fafstyle.min.css" />
+    <link rel="stylesheet" href="css/themes/fafstyle.min.css" />
     <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
-   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
         
         
         
@@ -58,12 +56,10 @@
   
 
 <a class="findbtn" href="#results" on-tap='find:{{genre1}},{{genre2}}'>Find!</a>
-
-
-                  </script>
+</script>
                   
                   
-                <script id='addPage' type='text/ractive'>
+<script id='addPage' type='text/ractive'>
 <!----------------------------------- Add form ------------------------------------------------------->
 
 <div id="container1">
@@ -85,7 +81,7 @@
 	
                   </script>
                   
-                <script id='appView' type='text/ractive'>
+<script id='appView' type='text/ractive'>
 		
 <!----------------------------------- film list View ------------------------------------------------------>			  
     <form class="ui-filterable">
@@ -102,17 +98,17 @@
 			  <a data-role="button" on-tap='save:{{fave}},{{title}},{{genreA}},{{genreB}}' data-icon="star" data-iconpos="left">{{fave}}</a>
 			  <a data-role="button" on-tap='remove:{{title}}' data-icon="delete" data-iconpos="left">Delete Film</a>
 			  </li>
-	    	</div>			 
-    
+	    	</div>			   
      {{/ end of filminfo list }}
+	 
 	 </ul>
 	</div>
           
-                  </script>
+</script>
                   
                   
                   
-                <script id='favePage' type='text/ractive'>
+<script id='favePage' type='text/ractive'>
 
 <div data-role="collapsible-set" data-mini="true">
     <ul id="flist" data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
@@ -127,7 +123,7 @@
     </ul>
               {{/ end of filminfo list }}
 			  </div>
-                  </script>
+</script>
                   
                   
               </div>
