@@ -135,13 +135,13 @@ addF = new Ractive ({ // add film page ractve
 		
 		},
 		
-		<!----------------------------------- reset app ------------------------------------------------------->	
+		<!----------------------------------- reset app ----------------------------------------------------->	
 	
-		reset: function ( event ) { // linked to reset button
-			window.localStorage.removeItem('first');
-			alert("app reset");
-			window.location = "index.html";
-		},
+		//reset: function ( event ) {  //linked to reset button, used to reset app local storage to defaults
+		//	window.localStorage.removeItem('first');
+	    //  alert("app reset");
+		//	window.location = "index.html";
+		//},
 		
 		
 		

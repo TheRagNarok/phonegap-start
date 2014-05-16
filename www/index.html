@@ -73,12 +73,16 @@
   
 <label><input value='{{fTitle}}' placeholder="Enter film title"></label>
 
-	<div class="top" data-role="controlgroup" data-type="horizontal" >
-		<button on-tap='add:{{fTitle}}'>Add</button>
-		<button on-tap='reset'>Reset</button>
-	</div>
+	 	
 	
-	
+	<a href="#addPopup" on-tap='add:{{fTitle}}'data-rel="popup"  data-role="button">Add Film</a>
+
+<div data-role="popup" id="addPopup">
+  <div data-role="header"><h1>Add Film</h1></div>
+  <div data-role="main" class="ui-content"><p>{{fTitle}} - {{genre1}}, {{genre2}} has been added.</p>
+  <a href="#AddFilm">Ok</a>
+  
+	/*<button on-tap='reset'>Reset</button>   used to reset app local storage to defaults*/
                   </script>
                   
 <script id='appView' type='text/ractive'>
