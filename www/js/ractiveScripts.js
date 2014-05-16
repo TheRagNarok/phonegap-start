@@ -130,6 +130,7 @@ addF = new Ractive ({ // add film page ractve
 			
 			else {
 				//alert("please enter a title & select two genres");
+				$( "#dialog" ).dialog();
 				}
 		
 		
