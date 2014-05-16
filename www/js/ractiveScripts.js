@@ -237,12 +237,14 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 				items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Add to watch list'});
 				
 				window.localStorage.setItem("filmstore",JSON.stringify(items));
+				faveF.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
 			}
 			else {
 				
 			items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Remove from watch list'});
 			
 			window.localStorage.setItem("filmstore",JSON.stringify(items));
+			faveF.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
 			}
 			
 		}
@@ -268,7 +270,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
     sortColumn: 'title'
   }
   });
-  observer = faveF.observe( 'items', function ( newValue, oldValue, keypath ) {
+  observer = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
   $("#flist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
 });
   
