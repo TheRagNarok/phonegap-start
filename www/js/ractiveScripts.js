@@ -121,11 +121,12 @@ addF = new Ractive ({ // add film page ractve
 			window.localStorage.setItem("filmstore",JSON.stringify(items));
 			filmdb.set({filminfo: filtered}); // update ractive
 			this.set({fTitle:""});
+			this.set({genre1:"select"});
+		    this.set({genre2:"select"});
 
 			
 			}
-	
-		
+
 		},
 		
 		<!----------------------------------- reset app ----------------------------------------------------->	
