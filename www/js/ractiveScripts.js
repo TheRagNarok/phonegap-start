@@ -236,7 +236,9 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			 title: sortedTitle,
 			 fave: "Add to watch list"
 			};
-				items.splice(titleArrayIndex, 1, newFilm);
+				items.splice(titleArrayIndex, 1);
+				items.push( newFilm );
+			window.localStorage.setItem("filmstore",JSON.stringify(items));
 				alert(title + "removed");
 			}
 			else {
@@ -247,11 +249,11 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			 title: sortedTitle,
 			 fave: "Remove from watch list"
 			};
-			items.splice(titleArrayIndex, 1, newFilm);
+			items.splice(titleArrayIndex, 1);
 			 
 
-			//items.push( newFilm );
-			//window.localStorage.setItem("filmstore",JSON.stringify(items));
+			items.push( newFilm );
+			window.localStorage.setItem("filmstore",JSON.stringify(items));
 			alert("added");
 			}
 			
