@@ -126,8 +126,8 @@ addF = new Ractive ({ // add film page ractve
 			this.set({fTitle:""});
 			this.set({genre1:"select"});
 		    this.set({genre2:"select"});
-			aOne = "select"; this.set({genre1:aOne});$('#' + id2).css("opacity", 1.0); // unselect first
-			aTne = "select"; this.set({genre1:aOne});$('#' + id2).css("opacity", 1.0); // unselect second
+			 $("#addContent").trigger("create"); 
+			
 			}
 			
 			else {
