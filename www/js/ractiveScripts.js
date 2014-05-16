@@ -13,9 +13,7 @@ else {
 var filtered = items; // set up global variables
 var one = "select";
 var two = "select";
-var aOne = "select";
-var aTwo = "select";
-var fTitle = "none";
+
 
 
 function updateLists(){
@@ -98,6 +96,8 @@ addF = new Ractive ({ // add film page ractve
 	data:{
 		  genreinfo: genre,
 		  fTitle:"",
+		  aOne:"select",
+          aTwo:"select",
 		 }
 	});
 	<!----------------------------------- add new film ------------------------------------------------------>
@@ -126,6 +126,8 @@ addF = new Ractive ({ // add film page ractve
 			this.set({fTitle:""});
 			this.set({genre1:"select"});
 		    this.set({genre2:"select"});
+			this.set({aOne:"select"});
+			this.set({aTwo:"select"});
 			fTitle = "";
 			}
 			
@@ -317,10 +319,10 @@ genre2: "select",
 		}
   });
 
-observer2 = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+observerFilm = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
   		$("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page		  		
 		});
-observer3 = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+observerFave = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
  		 $("#flist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
 		});
   
