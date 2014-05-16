@@ -224,12 +224,9 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 		    }	
 			
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
-			alert(sortedTitle + ' has been removed.');
 				
 			items.splice(titleArrayIndex, 1);  // remove object (defined by index number) from items array
-			
 			updateLists();
-			
 			window.location = "index.html#results";
 				
 			
@@ -245,20 +242,18 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 				choice1 = "Add to watch list";
 		    }	
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
-			if (fave === "Remove from watch list"){
-		
+			if (fave === "Remove from watch list")
+				{
+					//remove item and replace with a different fave value 
+					// -workaround for variations of items[titleArrayIndex].splice(3,1,{fave:'Add to watch list'});  not working
 				items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Add to watch list'});
-				
 				updateLists();
-				
-			}
-			else {
-				
-			items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Remove from watch list'});
-			
-			updateLists();
-			
-			}
+				}
+			else 
+				{
+				items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Remove from watch list'});
+				updateLists();
+				}
 			
 		}
 		
