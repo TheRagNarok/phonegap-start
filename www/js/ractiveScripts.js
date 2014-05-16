@@ -24,8 +24,8 @@ function updateLists(){
 			{
 			filtered = items.filter(function (el) {return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);}); // filter item one or one and two
 			filmdb.set({filminfo: filtered}); // update ractive
-			faveF.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");}),});
 			}
+			faveF.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");}),});
 	
 	}
 
@@ -311,7 +311,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Remove from watch list'});
 			
 			window.localStorage.setItem("filmstore",JSON.stringify(items));
-			this.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
+			faveF.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
 			}
 			
 		}
