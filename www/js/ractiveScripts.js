@@ -121,13 +121,10 @@ addF = new Ractive ({ // add film page ractve
 			window.localStorage.setItem("filmstore",JSON.stringify(items));
 			alert(fTitle + " has been added.");
 			filmdb.set({filminfo: filtered}); // update ractive
-			aOne = "select";
-			aTwo = "select";
 			this.set({fTitle:""});
 			this.set({genre1:"select"});
 		    this.set({genre2:"select"});
-			 location.reload(true);
-			 $("#addContent").trigger("create");
+
 			
 			}
 			
