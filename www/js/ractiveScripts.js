@@ -122,8 +122,6 @@ addF = new Ractive ({ // add film page ractve
 			alert(fTitle + " has been added.");
 			filmdb.set({filminfo: filtered}); // update ractive
 			this.set({fTitle:""});
-			this.set({genre1:"select"});
-		    this.set({genre2:"select"});
 
 			
 			}
