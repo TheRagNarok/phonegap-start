@@ -169,6 +169,12 @@ genre2: "select",
     filminfo: filtered.sort(function() {
    return Math.random() - 0.5;}) ,
 
+	 filter: function ( item ) {
+      var filter = filters[ this.get( 'currentFilter' ) ];
+      return filter( item );
+    },
+    currentFilter: 'all',
+	
 	
     sort: function ( array, column ) {
       array = array.slice(); // clone, so we don't modify the underlying data
@@ -228,18 +234,16 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
 			alert(fave);
 			if (fave === "Remove from watch list"){
-				alert("trying to remove" + titleArrayPosition);
 		
-				items[titleArrayIndex].splice(4, 1, "this");
+				items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Add to watch list'});
 				
-				alert(title + "removed");
+				window.localStorage.setItem("filmstore",JSON.stringify(items));
 			}
 			else {
-				alert("trying to add");
 				
-			items.splice(titleArrayIndex, 1);
+			items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Remove from watch list'});
 			
-			alert("added");
+			window.localStorage.setItem("filmstore",JSON.stringify(items));
 			}
 			
 		}
