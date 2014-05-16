@@ -229,14 +229,9 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
 			alert(fave);
 			if (fave === "Remove from watch list"){
-				alert("trying to remove");
-				var newFilm = {
-			 genreA: gA,
-			 genreB: gB,
-			 title: sortedTitle,
-			 fave: "Add to watch list"
-			};
-				items.splice(titleArrayIndex, 1);
+				alert("trying to remove" + items[titleArrayIndex]);
+		
+				items[titleArrayIndex].splice(4, 1, "this");
 				items.push( newFilm );
 			window.localStorage.setItem("filmstore",JSON.stringify(items));
 				alert(title + "removed");
