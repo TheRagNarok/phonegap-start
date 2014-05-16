@@ -206,13 +206,13 @@ genre2: "select",
   }
 
   });
-observer = addF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+observer1 = addF.observe( 'fTitle', function ( newValue, oldValue, keypath ) {
 	   $("#addContent").trigger("create");
 	    });
-observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+observer2 = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
   		$("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page		  		
 		});
-observer = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+observer3 = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
  		 $("#flist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
 		});
 
