@@ -97,7 +97,7 @@ addF = new Ractive ({ // add film page ractve
 	template:'#addPage',
 	data:{
 		  genreinfo: genre,
-		  fTitle:"test",
+		  fTitle:"",
 		 }
 	});
 	<!----------------------------------- add new film ------------------------------------------------------>
@@ -123,9 +123,9 @@ addF = new Ractive ({ // add film page ractve
 			filmdb.set({filminfo: filtered}); // update ractive
 			aOne = "select";
 			aTwo = "select";
-			this.set({fTitle:"select"});
+			this.set({fTitle:""});
 			this.set({genre1:"select"});
-		    genre2 = "select";
+		    this.set({genre2:"select"});
 			fTitle = "";
 			}
 			
@@ -316,9 +316,7 @@ genre2: "select",
 			
 		}
   });
- observer1 = addF.observe( 'fTitle', function ( newValue, oldValue, keypath ) {
-	   $("#addContent").trigger("create");
-	    });
+
 observer2 = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
   		$("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page		  		
 		});
