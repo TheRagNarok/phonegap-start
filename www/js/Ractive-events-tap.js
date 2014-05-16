@@ -84,7 +84,7 @@
 		var mousedown, touchstart, focusHandler, distanceThreshold, timeThreshold;
 
 		distanceThreshold = 5; // maximum pixels pointer can move before cancel
-		timeThreshold = 400;   // maximum milliseconds between down and up before cancel
+		timeThreshold = 800;   // maximum milliseconds between down and up before cancel
 
 		mousedown = function ( event ) {
 			var currentTarget, x, y, pointerId, up, move, cancel;
