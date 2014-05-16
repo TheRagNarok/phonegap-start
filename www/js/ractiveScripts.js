@@ -213,7 +213,6 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 		    }	
 			
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
-			alert(sortedTitle + ' has been removed.');
 				
 			items.splice(titleArrayIndex, 1);  // remove object (defined by index number) from items array
 			window.localStorage.setArray("filmstore", items); // update changes
@@ -232,7 +231,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 				choice1 = "Add to watch list";
 		    }	
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
-			alert(fave);
+			
 			if (fave === "Remove from watch list"){
 		
 				items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Add to watch list'});
@@ -269,4 +268,9 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
     sortColumn: 'title'
   }
   });
+  observer = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+  $("#flist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
+});
+  
+  
   }
