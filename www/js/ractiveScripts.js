@@ -268,7 +268,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
     sortColumn: 'title'
   }
   });
-  observer = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+  observer = faveF.observe( 'items', function ( newValue, oldValue, keypath ) {
   $("#flist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
 });
   
