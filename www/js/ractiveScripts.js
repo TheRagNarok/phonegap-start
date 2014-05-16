@@ -13,6 +13,8 @@ else {
 var filtered = items; // set up global variables
 var one = "select";
 var two = "select";
+var aOne = "select";
+var aTwo = "select";
 
 
 
@@ -96,8 +98,6 @@ addF = new Ractive ({ // add film page ractve
 	data:{
 		  genreinfo: genre,
 		  fTitle:"",
-		  aOne:"select",
-          aTwo:"select",
 		 }
 	});
 	<!----------------------------------- add new film ------------------------------------------------------>
@@ -126,9 +126,8 @@ addF = new Ractive ({ // add film page ractve
 			this.set({fTitle:""});
 			this.set({genre1:"select"});
 		    this.set({genre2:"select"});
-			this.set({aOne:"select"});
-			this.set({aTwo:"select"});
-			fTitle = "";
+			aOne = "select"; this.set({genre1:aOne});$('#' + id2).css("opacity", 1.0); // unselect first
+			aTne = "select"; this.set({genre1:aOne});$('#' + id2).css("opacity", 1.0); // unselect second
 			}
 			
 			else {
