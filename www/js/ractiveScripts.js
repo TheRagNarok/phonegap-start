@@ -18,6 +18,17 @@ var aTwo = "select";
 var fTitle = "none";
 
 
+function updateLists(){
+	window.localStorage.setItem("filmstore",JSON.stringify(items));
+			if (two != "select" || one != "select") // fix jquery mobile / ractive update glitch
+			{
+			filtered = items.filter(function (el) {return (el.genreA === one || el.genreA === two || el.genreB === one || el.genreB === two);}); // filter item one or one and two
+			filmdb.set({filminfo: filtered}); // update ractive
+			faveF.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");}),});
+			}
+	
+	}
+
 // all ractive based scripts go here, e.g. new ractives and ractive events such as ractive.on and ractive.observe
 function ractiveSetup(){ 
 	
@@ -203,7 +214,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 	
 	<!----------------------------------- remove selected film -------------------------------------------->	
 	  
-		remove: function ( event, title) { // Remove item
+	remove: function ( event, title) { // Remove item
 			var sortedTitle = title;
 			var titleArrayPosition;
 
@@ -213,10 +224,12 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 		    }	
 			
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
+			alert(sortedTitle + ' has been removed.');
 				
 			items.splice(titleArrayIndex, 1);  // remove object (defined by index number) from items array
-			window.localStorage.setItem("filmstore",JSON.stringify(items));
-			filmdb.set({filminfo: filtered}); // update ractive
+			
+			updateLists();
+			
 			window.location = "index.html#results";
 				
 			
@@ -232,20 +245,19 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 				choice1 = "Add to watch list";
 		    }	
 			var titleArrayIndex = items.indexOf(titleArrayPosition);
-			
 			if (fave === "Remove from watch list"){
 		
 				items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Add to watch list'});
 				
-				window.localStorage.setItem("filmstore",JSON.stringify(items));
-				faveF.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
+				updateLists();
+				
 			}
 			else {
 				
 			items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Remove from watch list'});
 			
-			window.localStorage.setItem("filmstore",JSON.stringify(items));
-			faveF.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
+			updateLists();
+			
 			}
 			
 		}
