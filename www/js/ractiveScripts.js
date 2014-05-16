@@ -1,4 +1,21 @@
+if (window.localStorage.getItem("first") === null )// if item first does not exist
+ {
+	window.localStorage.setItem("first", "no"); // create first, with a value of no
+	window.localStorage.setItem("filmstore",JSON.stringify(films)); //set initial filmstore list from the default film array in films.js
+	items = JSON.parse(window.localStorage.getItem("filmstore")); //set items to equal this list
+}
+else {
+	items = JSON.parse(window.localStorage.getItem("filmstore")); // if not being run for the first time then get the items list from filmstore
+	
+}
 
+
+var filtered = items; // set up global variables
+var one = "select";
+var two = "select";
+var aOne = "select";
+var aTwo = "select";
+var fTitle = "none";
 // all ractive based scripts go here, e.g. new ractives and ractive events such as ractive.on and ractive.observe
 function ractiveSetup(){ 
 	
