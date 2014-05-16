@@ -41,7 +41,7 @@ input {
   padding: 0;
   position: absolute;
   bottom: 0;
-  width: 260px;
+  width: 100%;
 }
 
 .genrepad li {

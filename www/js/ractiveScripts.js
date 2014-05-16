@@ -1,22 +1,3 @@
-if (window.localStorage.getItem("first") === null )// if item first does not exist
- {
-	window.localStorage.setItem("first", "no"); // create first, with a value of no
-	window.localStorage.setItem("filmstore",JSON.stringify(films)); //set initial filmstore list from the default film array in films.js
-	items = JSON.parse(window.localStorage.getItem("filmstore")); //set items to equal this list
-}
-else {
-	items = JSON.parse(window.localStorage.getItem("filmstore")); // if not being run for the first time then get the items list from filmstore
-	
-}
-
-
-var filtered = items; // set up global variables
-var one = "select";
-var two = "select";
-var aOne = "select";
-var aTwo = "select";
-var fTitle = "none";
-
 
 // all ractive based scripts go here, e.g. new ractives and ractive events such as ractive.on and ractive.observe
 function ractiveSetup(){ 
@@ -188,8 +169,8 @@ genre2: "select",
 
   });
 observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
-  $("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
-});
+  		$("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
+		});
 
 
 	filmdb.on( { // add film ractive sub-functions
@@ -270,9 +251,38 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
     sortColumn: 'title'
   }
   });
+  
+  save: function(event, fave, title, genreA, genreB) {
+			var sortedTitle = title;
+			
+			var titleArrayPosition;
+			for (var i=0, iLen=items.length; i<iLen; i++) {  // loop through objects in items array
+			if (items[i].title == sortedTitle) 
+				titleArrayPosition = items[i];  // search for title
+				choice1 = "Add to watch list";
+		    }	
+			var titleArrayIndex = items.indexOf(titleArrayPosition);
+			
+			if (fave === "Remove from watch list"){
+		
+				items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Add to watch list'});
+				
+				window.localStorage.setItem("filmstore",JSON.stringify(items));
+				this.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
+			}
+			else {
+				
+			items.splice(titleArrayIndex, 1, {genreA:genreA, genreB:genreB, title:title, fave:'Remove from watch list'});
+			
+			window.localStorage.setItem("filmstore",JSON.stringify(items));
+			this.set({filminfo: items.filter(function (el) {return (el.fave === "Remove from watch list");})})
+			}
+			
+		}
+  
   observer = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
-  $("#flist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
-});
+ 		 $("#flist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
+		});
   
   
   }
