@@ -106,7 +106,7 @@ addF = new Ractive ({ // add film page ractve
 		 
 		add: function ( event, fTitle) { // linked to add film button
 			genre1: "select";
-		  genre2: "select";
+		    genre2: "select";
 			if (aTwo != "select" && aOne != "select" && fTitle != "none")
 			{
 				
@@ -119,7 +119,7 @@ addF = new Ractive ({ // add film page ractve
 
 			items.push( newFilm );
 			window.localStorage.setItem("filmstore",JSON.stringify(items));
-			//alert(fTitle + " has been added.");
+			alert(fTitle + " has been added.");
 			filmdb.set({filminfo: filtered}); // update ractive
 			aOne = "select";
 			aTwo = "select";
@@ -129,7 +129,7 @@ addF = new Ractive ({ // add film page ractve
 			}
 			
 			else {
-				//alert("please enter a title & select two genres");
+				alert("please enter a title & select two genres");
 			
 				}
 		
@@ -206,8 +206,14 @@ genre2: "select",
   }
 
   });
+observer = addF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+	   $("#addContent").trigger("create");
+	    });
 observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
-  		$("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
+  		$("#rlist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page		  		
+		});
+observer = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
+ 		 $("#flist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
 		});
 
 
@@ -317,9 +323,7 @@ observer = filmdb.observe( 'filminfo', function ( newValue, oldValue, keypath ) 
 			
 		}
   });
-  observer = faveF.observe( 'filminfo', function ( newValue, oldValue, keypath ) {
- 		 $("#flist").trigger("create");  // observe when filminfo list is changed, then trigger 'JQM create' on the results list to re-enhance page
-		});
+ 
   
   
   }
