@@ -107,7 +107,7 @@ addF = new Ractive ({ // add film page ractve
 		add: function ( event, fTitle) { // linked to add film button
 			genre1: "select";
 		    genre2: "select";
-			if (aTwo != "select" && aOne != "select" && fTitle != "none")
+			if (aTwo != "select" && aOne != "select" && fTitle != "")
 			{
 				
 			 var newFilm = {
@@ -119,18 +119,12 @@ addF = new Ractive ({ // add film page ractve
 
 			items.push( newFilm );
 			window.localStorage.setItem("filmstore",JSON.stringify(items));
-			alert(fTitle + " has been added.");
 			filmdb.set({filminfo: filtered}); // update ractive
 			this.set({fTitle:""});
 
 			
 			}
-			
-			else {
-				alert("please enter a title & select two genres");
-			
-				}
-		
+	
 		
 		},
 		
