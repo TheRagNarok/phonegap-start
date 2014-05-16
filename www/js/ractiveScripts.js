@@ -121,7 +121,7 @@ addF = new Ractive ({ // add film page ractve
 			items.push( newFilm );
 			window.localStorage.setItem("filmstore",JSON.stringify(items));
 			filmdb.set({filminfo: filtered}); // update ractive
-			message = "Film added.";
+			filmdb.set({message:"Film added."});
 			aOne = "select";
 			aTwo = "select";
 			genre1 = "select";
@@ -130,7 +130,7 @@ addF = new Ractive ({ // add film page ractve
 			}
 			
 			else {
-				message = "please enter a TITLE & select TWO genres.";
+				filmdb.set({message:"please enter a TITLE & select TWO genres."});
 				}
 		
 		
