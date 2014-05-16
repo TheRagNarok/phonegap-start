@@ -54,10 +54,11 @@
         </ul>
 			{{/genreinfo}}
 	</div>
- <div align="center"> <p>{{genre1}} , {{genre2}}.</p></div>
+ <div align="center"> <p><div placeholder="select">{{genre1}}</div> , <div placeholder="select">{{genre2}}</div>.</p></div>
   
-
-<a class="findbtn" href="#results" on-tap='find:{{genre1}},{{genre2}}'>Find!</a> 
+<div id="fbtnContainer">
+<a class="findbtn" href="#results" on-tap='find:{{genre1}},{{genre2}}'>Find!</a>
+</div> 
 
                   </script>
                   

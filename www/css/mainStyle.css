@@ -36,6 +36,12 @@ input {
   margin-top: 5px;
 }
 
+fbtnContainer {
+	width:200px;
+	margin: 0 auto;
+	
+}
+
 .genrepad { 
   margin: 0;
   padding: 0;
@@ -94,7 +100,6 @@ filter:alpha(opacity=30); /* For IE8 and earlier
 	font-style:normal;
 	height:54px;
 	line-height:54px;
-	margin:0 auto;
 	width:200px;
 	text-decoration:none;
 	text-align:center;
